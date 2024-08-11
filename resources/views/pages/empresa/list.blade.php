@@ -37,7 +37,7 @@
     </div>
     @if($search)
     <h1 class="text-center">
-        Bucando por: {{$search}}
+        Bucando por: {{$search}} 
     </h1>
     @endif
     <div class="flex justify-center " style="min-height: 80vh;">

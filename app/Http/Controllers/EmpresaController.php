@@ -19,7 +19,11 @@ class EmpresaController extends Controller
      */
     public function index()
     {
+        
+        
         $search = request('search');
+        
+        // $count = $this->empresa->count();
 
         if ($search) {
             $empresas = $this->empresa
@@ -28,6 +32,7 @@ class EmpresaController extends Controller
                 ->get();
         } else {
             $empresas = $this->empresa->all();
+            $empresas = $this->empresa->orderBy('nome_empresa', 'asc')->get();
         }
 
 
