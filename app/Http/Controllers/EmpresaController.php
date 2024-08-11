@@ -19,8 +19,19 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        $empresas = $this->empresa->all();
-        return view('pages.empresa.list', ['empresa' => $empresas]);
+        $search = request('search');
+
+        if ($search) {
+            $empresas = $this->empresa
+                ->where('nome_empresa', 'like', '%' . $search . '%')
+                ->orWhere('nome_dono', 'like', '%' . $search . '%')
+                ->get();
+        } else {
+            $empresas = $this->empresa->all();
+        }
+
+
+        return view('pages.empresa.list', ['empresa' => $empresas, 'search' => $search]);
     }
 
     /**
@@ -56,7 +67,7 @@ class EmpresaController extends Controller
      */
     public function show(Empresa $empresa)
     {
-        return view('pages.empresa.delete',['empresa'=>$empresa]);
+        return view('pages.empresa.delete', ['empresa' => $empresa]);
     }
 
     /**
@@ -64,8 +75,7 @@ class EmpresaController extends Controller
      */
     public function edit(Empresa $empresa)
     {
-        return view('pages.empresa.edit',['empresa'=>$empresa]);
-        
+        return view('pages.empresa.edit', ['empresa' => $empresa]);
     }
 
     /**
@@ -79,7 +89,6 @@ class EmpresaController extends Controller
 
             return redirect()->route('empresa.index')->with('message', 'Empresa atualizada com sucesso');
         }
-        
     }
 
     /**
@@ -90,6 +99,5 @@ class EmpresaController extends Controller
         $id = $empresa->id;
         $this->empresa->where('id', $id)->delete();
         return redirect()->route('empresa.index')->with('message', 'Empresa apagada com sucesso');
-
     }
 }
