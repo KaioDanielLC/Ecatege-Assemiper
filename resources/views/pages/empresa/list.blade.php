@@ -15,29 +15,21 @@
         </button>
     </div>
     @endif
-    <div class="flex justify-center">
-        <form class="flex items-center">
-            <label for="simple-search" class="sr-only">Search</label>
-            <div class="relative w-96">
-                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                    <svg class="w-4 h-4 text-gray-500   " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                    </svg>
-                </div>
-                <input type="text" id="search" name="search" placeholder="pesquise sua empresa" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 " />
+    <div class="flex justify-center mt-6">
+        <form class="flex w-full max-w-md">
+            <div class="relative flex-grow">
+                <input type="text" id="search" name="search" placeholder="Pesquisar empresa" class="w-full p-2 text-sm border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" />
             </div>
-            <button type="submit" class="p-2.5 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
-                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+            <button type="submit" class="ml-2 p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300">
+                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" aria-hidden="true">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 19l-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
                 </svg>
-                <span class="sr-only">Search</span>
             </button>
         </form>
-
     </div>
     @if($search)
     <h1 class="text-center">
-        Bucando por: {{$search}} 
+        Bucando por: {{$search}}
     </h1>
     @endif
     <div class="flex justify-center " style="min-height: 80vh;">
@@ -55,11 +47,11 @@
                     </div>
                     <div>
                         <p>endereço:</p>
-                        <p class="font-normal text-gray-700 dark:text-gray-400">Rua manoel gomes 2034</p>
+                        <p class="font-normal text-gray-700 dark:text-gray-400">{{$empresas->endereco}}</p>
                     </div>
                     <div>
                         <p>Celular:</p>
-                        <p class="font-normal text-gray-700 dark:text-gray-400">(99) 9999-9999</p>
+                        <p class="font-normal text-gray-700 dark:text-gray-400">{{$empresas->celular}}</p>
                     </div>
                     <div>
                         <p>Telefone</p>
@@ -89,8 +81,10 @@
     </div>
     <div class="me-36 text-end absolute">
         <a href="{{route('empresa.create')}}" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm fixed right-10 bottom-10">
-            <button type="submit" class="w-16 h-16">
-                +
+            <button type="submit" class="w-16 h-16 flex justify-center items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-8 h-8">
+                    <path fill="#ffffff" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z" />
+                </svg>
             </button>
         </a>
     </div>

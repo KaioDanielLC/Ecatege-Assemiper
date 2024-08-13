@@ -1,50 +1,43 @@
 <x-app-layout>
-    <div class="flex justify-center items-center" style="min-height: 85vh;">
-        <div class="shadow-2xl rounded-lg border-2 bg-gray-100 p-2">
-            <div class="text-center mb-5 text-xl">
-                Cadastrar Empresa/Parceiro
-            </div>
-            <div class="p-5">
-                <form action="{{route('empresa.update' , ['empresa' => $empresa->id])}}" method="post">
-                    @csrf
-                    <input type="hidden" name="_method" value="PUT">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label for="nome_empresa" class="block mb-2 text-sm font-medium">Nome da Empresa*</label>
-                            <input value="{{$empresa->nome_empresa}}" name="nome_empresa" id="nome_empresa" required type="text" class="rounded-lg" >
-                        </div>
-                        <div>
-                            <label for="nome_dono" class="block mb-2 text-sm font-medium">Nome do Titular*</label>
-                            <input value="{{$empresa->nome_dono}}"  name="nome_dono" id="nome_dono" required type="text" class="rounded-lg">
-                        </div>
-                        <div>
-                            <label for="endereco" class="block mb-2 text-sm font-medium">Endereço*</label>
-                            <input value="{{$empresa->endereco}}"  name="endereco" id="endereco" required type="text" class="rounded-lg">
-                        </div>
-                        <div x-data>
-                            <label for="telefone" class="block mb-2 text-sm font-medium">Telefone*</label>
-                            <input value="{{$empresa->telefone}}" x-mask="(99) 9999-9999" placeholder="(99) 9999-9999" name="telefone" id="telefone" required type="text" class="rounded-lg">
-                        </div>
-                        <div x-data>
-                            <label for="celular" class="block mb-2 text-sm font-medium">Celular*</label>
-                            <input value="{{$empresa->celular}}"  x-mask="(99) 9999-9999" placeholder="(99) 9999-9999"
-                            name="celular" id="celular" required type="text" class="rounded-lg">
-                        </div>
-                        <div>
-                            <label for="email" class="block mb-2 text-sm font-medium">Email*</label>
-                            <input value="{{$empresa->email}}"  name="email" id="email" required type="text" class="rounded-lg">
-                        </div>
-                        
-                        <button type="submit" class="text-white focus:ring-4 focus:outline-none focus:ring-green-300 bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-full">Cadastrar</button>
-
-                        <a href="{{route('empresa.index')}}">
-                            <button type="button" class="text-white bg-red-700 hover:bg-red-500 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-full">Cancelar</button>
-                        </a>
-
-
+    <div class="flex justify-center items-center min-h-screen bg-gray-50">
+        <div class="max-w-4xl w-full bg-white shadow-lg rounded-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-700 text-center mb-6">Editar Empresa/Parceiro</h2>
+            <form action="{{ route('empresa.update', ['empresa' => $empresa->id]) }}" method="post">
+                @csrf
+                <input type="hidden" name="_method" value="PUT">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="nome_empresa" class="block text-sm font-medium text-gray-600">Nome da Empresa*</label>
+                        <input value="{{ $empresa->nome_empresa }}" name="nome_empresa" id="nome_empresa" required type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                     </div>
-                </form>
-            </div>
+                    <div>
+                        <label for="nome_dono" class="block text-sm font-medium text-gray-600">Nome do Titular*</label>
+                        <input value="{{ $empresa->nome_dono }}" name="nome_dono" id="nome_dono" required type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="endereco" class="block text-sm font-medium text-gray-600">Endereço*</label>
+                        <input value="{{ $empresa->endereco }}" name="endereco" id="endereco" required type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                    </div>
+                    <div x-data>
+                        <label for="telefone" class="block text-sm font-medium text-gray-600">Telefone*</label>
+                        <input value="{{ $empresa->telefone }}" x-mask="(99) 9999-9999" placeholder="(99) 9999-9999" name="telefone" id="telefone" required type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                    </div>
+                    <div x-data>
+                        <label for="celular" class="block text-sm font-medium text-gray-600">Celular*</label>
+                        <input value="{{ $empresa->celular }}" x-mask="(99) 9999-9999" placeholder="(99) 9999-9999" name="celular" id="celular" required type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-600">Email*</label>
+                        <input value="{{ $empresa->email }}" name="email" id="email" required type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                    </div>
+                </div>
+                <div class="mt-6 flex justify-end gap-4">
+                    <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">Substituir</button>
+                    <a href="{{ route('empresa.index') }}">
+                        <button type="button" class="inline-flex justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">Cancelar</button>
+                    </a>
+                </div>
+            </form>
         </div>
     </div>
 </x-app-layout>

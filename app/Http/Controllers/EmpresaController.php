@@ -59,12 +59,12 @@ class EmpresaController extends Controller
             'telefone' => $request->input('telefone'),
             'celular' => $request->input('celular'),
             'email' => $request->input('email'),
-        ]);
+        ]); 
         if ($created) {
             return redirect()->route('empresa.index')->with('message', 'Empresa cadastrada com sucesso');
         };
 
-        return redirect()->back();
+        
     }
 
     /**
@@ -72,7 +72,9 @@ class EmpresaController extends Controller
      */
     public function show(Empresa $empresa)
     {
-        return view('pages.empresa.delete', ['empresa' => $empresa]);
+        $id = $empresa->id;
+        $this->empresa->where('id', $id)->delete();
+        return redirect()->route('empresa.index')->with('message', 'Empresa apagada com sucesso');
     }
 
     /**
