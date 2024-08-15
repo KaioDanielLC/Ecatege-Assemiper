@@ -2,9 +2,6 @@
     <head>
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Moderustic:wght@300..800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Moderustic:wght@300..800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
     
     @if (session()->has('message'))
@@ -76,7 +73,7 @@
                             Editar
                         </button>
                     </a>
-                    <a href="{{route('empresa.destroy',[$empresas->id])}}" class="flex justify-center items-center">
+                    <a href="{{route('empresa.destroy',[$empresas->id])}}" class="flex justify-center items-center" id="delete-link">
                         <button type="button" class="text-white bg-red-700 hover:bg-red-500 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center w-1/2 ">
                             Excluir
                         </button>
@@ -97,5 +94,12 @@
         </a>
     </div>
 
-
+    <script>
+        document.getElementById('delete-link').addEventListener('click', function(event) {
+            event.preventDefault(); // Previne a ação padrão do link
+            if (confirm("Tem certeza que deseja excluir esta empresa?")) {
+                window.location.href = this.href; // Redireciona para o link de exclusão
+            }
+        });
+    </script>
 </x-app-layout>

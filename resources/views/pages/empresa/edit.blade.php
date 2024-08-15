@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout class="font-sans">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <div class="flex justify-center items-center min-h-screen bg-gray-50">
         <div class="max-w-4xl w-full bg-white shadow-lg rounded-lg p-6">
@@ -42,3 +42,4 @@
         </div>
     </div>
 </x-app-layout>
+
