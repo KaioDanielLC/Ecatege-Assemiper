@@ -11,6 +11,10 @@ Route::get('/', function () {
     return view('auth.register');
 });
 
+Route::get('/empresa', function () {
+    return view('pages/empresa/list.blade.php');
+});
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');

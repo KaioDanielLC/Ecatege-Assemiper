@@ -1,8 +1,9 @@
 <x-app-layout>
     <div class="flex justify-center items-center min-h-screen bg-gray-50">
-        <div class="max-w-4xl w-full bg-white shadow-lg rounded-lg p-6">
+        <div class="max-w-4xl w-full bg-white shadow-lg rounded-lg p-6" >
             <h2 class="text-2xl font-semibold text-gray-700 text-center mb-6">Cadastrar Empresa/Parceiro</h2>
-            <form action="{{ route('empresa.store') }}" method="POST">
+
+            <form action="{{ route('empresa.store') }}" method="POST" >
                 @csrf
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
@@ -28,6 +29,28 @@
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-600">Email<span class="text-red-700">*</span></label>
                         <input name="email" id="email" placeholder="user@gmail.com" required type="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">   
+                        @if ($errors->any())
+        <div class="bg-red-50 border-l-4 border-red-500 text-red-700 p-4 rounded-md shadow-md" role="alert">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                    <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M18 10A8 8 0 110 10a8 8 0 0118 0zm-8-4a1 1 0 00-1 1v2a1 1 0 102 0V7a1 1 0 00-1-1zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div class="ml-3">
+                    <div class="mt-2 text-base">
+                        <ul class="list-disc pl-5 space-y-1">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+                        @endif
+
+
                     </div>
                 </div>
                 <div class="mt-6 flex justify-end gap-4">

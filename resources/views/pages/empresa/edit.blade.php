@@ -1,4 +1,5 @@
 <x-app-layout>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <div class="flex justify-center items-center min-h-screen bg-gray-50">
         <div class="max-w-4xl w-full bg-white shadow-lg rounded-lg p-6">
             <h2 class="text-2xl font-semibold text-gray-700 text-center mb-6">Editar Empresa/Parceiro</h2>

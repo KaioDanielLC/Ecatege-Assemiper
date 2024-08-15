@@ -52,6 +52,14 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'email' => 'required|unique:empresas',
+        ],['email.unique' => 'Este email já está sendo utilizado.',
+        
+        ]);
+    
+        // Criando a empresa
         $created = $this->empresa->create([
             'nome_empresa' => $request->input('nome_empresa'),
             'nome_dono' => $request->input('nome_dono'),
@@ -60,12 +68,12 @@ class EmpresaController extends Controller
             'celular' => $request->input('celular'),
             'email' => $request->input('email'),
         ]); 
+    
         if ($created) {
             return redirect()->route('empresa.index')->with('message', 'Empresa cadastrada com sucesso');
-        };
-
-        
+        }
     }
+    
 
     /**
      * Display the specified resource.

@@ -1,4 +1,12 @@
 <x-app-layout>
+    <head>
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Moderustic:wght@300..800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Moderustic:wght@300..800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    
     @if (session()->has('message'))
     <div id="alert-border-1" class="flex items-center p-4 mb-4 text-blue-800 border-t-4 border-blue-300 bg-blue-50" role="alert">
         <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -15,7 +23,7 @@
         </button>
     </div>
     @endif
-    <div class="flex justify-center mt-6">
+    <div class="flex justify-end p-6 " style="background-color:#004d40">
         <form class="flex w-full max-w-md">
             <div class="relative flex-grow">
                 <input type="text" id="search" name="search" placeholder="Pesquisar empresa" class="w-full p-2 text-sm border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" />
@@ -29,24 +37,24 @@
     </div>
     @if($search)
     <h1 class="text-center">
-        Bucando por: {{$search}}
+        Buscando por: {{$search}}
     </h1>
     @endif
-    <div class="flex justify-center " style="min-height: 80vh;">
+    <div class=" flex justify-center" style="min-height: 80vh;background-image: linear-gradient(to bottom, #004d40, #d6c4c4, #d86410)">
 
 
 
         <div class=" w-4/6 ">
-            <div class="flex justify-center mt-10 gap-28 grid grid-cols-2 mb-10">
+            <div class="flex justify-center mt-10 gap-28 grid grid-cols-2 mb-10" style="font-family:'Josefin Sans', sans-serif">
                 @foreach ($empresa as $empresas )
                 <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow h-96 w-96 grid grid-cols-2 ">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center col-span-2">{{$empresas->nome_empresa}}</h5>
                     <div>
-                        <p>Nome do Dono:</p>
+                        <p>Nome do Titular:</p>
                         <p class="font-normal text-gray-700 dark:text-gray-400">{{$empresas->nome_dono}}</p>
                     </div>
                     <div>
-                        <p>endereço:</p>
+                        <p>Endereço:</p>
                         <p class="font-normal text-gray-700 dark:text-gray-400">{{$empresas->endereco}}</p>
                     </div>
                     <div>
@@ -54,7 +62,7 @@
                         <p class="font-normal text-gray-700 dark:text-gray-400">{{$empresas->celular}}</p>
                     </div>
                     <div>
-                        <p>Telefone</p>
+                        <p>Telefone:</p>
                         <p class="font-normal text-gray-700 dark:text-gray-400">{{$empresas->telefone}}</p>
                     </div>
                     <div>
