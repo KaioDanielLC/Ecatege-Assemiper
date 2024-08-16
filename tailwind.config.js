@@ -13,11 +13,7 @@ export default {
         extend: {
             
             fontFamily: {
-                montserrat: ['Montserrat', 'sans-serif'],
-                raleway: ['Raleway', 'sans-serif'],
-                nunito:['Nunito', 'sans-serif'],
-                moderustic:[ 'Moderustic', 'sans-serif'],
-                josefin: ['Josefin Sans', 'sans-serif'],            
+                
             },
         },
     },

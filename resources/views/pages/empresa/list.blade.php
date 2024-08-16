@@ -1,11 +1,6 @@
 <x-app-layout>
-    <head>
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Moderustic:wght@300..800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    </head>
-    
     @if (session()->has('message'))
-    <div id="alert-border-1" class="flex items-center p-4 mb-4 text-blue-800 border-t-4 border-blue-300 bg-blue-50" role="alert">
+    <div id="alert-border-1" class="flex items-center p-4 mb-4 text-blue-800 border-t-4 border-blue-300 bg-blue-100" role="alert">
         <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
         </svg>
@@ -20,10 +15,17 @@
         </button>
     </div>
     @endif
-    <div class="flex justify-end p-6 " style="background-color:#004d40">
-        <form class="flex w-full max-w-md">
+    <div class="flex justify-end p-6" style="background-color:#333333">
+        <form class="flex w-full max-w-md" method="GET" action="{{ route('empresa.index') }}">
             <div class="relative flex-grow">
-                <input type="text" id="search" name="search" placeholder="Pesquisar empresa" class="w-full p-2 text-sm border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" />
+                <input 
+                    type="text" 
+                    id="search" 
+                    name="search" 
+                    placeholder="Pesquisar empresa/Nome do Titular" 
+                    class="w-full p-2 text-sm border border-gray-300 rounded-lg text-dark focus:ring-blue-500 focus:border-blue-500" 
+                    value="{{ request('search') }}" 
+                />
             </div>
             <button type="submit" class="ml-2 p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300">
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" aria-hidden="true">
@@ -32,19 +34,14 @@
             </button>
         </form>
     </div>
-    @if($search)
-    <h1 class="text-center">
-        Buscando por: {{$search}}
-    </h1>
-    @endif
-    <div class=" flex justify-center" style="min-height: 80vh;background-image: linear-gradient(to bottom, #004d40, #d6c4c4, #d86410)">
+    <div class=" flex justify-center" style="min-height: 80vh;background: linear-gradient(to bottom, #333333 0%, #444444 100%);">
 
 
 
         <div class=" w-4/6 ">
-            <div class="flex justify-center mt-10 gap-28 grid grid-cols-2 mb-10" style="font-family:'Josefin Sans', sans-serif">
+            <div class="flex justify-center mt-10 gap-28 grid grid-cols-2 mb-10">
                 @foreach ($empresa as $empresas )
-                <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow h-96 w-96 grid grid-cols-2 ">
+                <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md h-96 w-96 grid grid-cols-2 ">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center col-span-2">{{$empresas->nome_empresa}}</h5>
                     <div>
                         <p>Nome do Titular:</p>
@@ -59,7 +56,7 @@
                         <p class="font-normal text-gray-700 dark:text-gray-400">{{$empresas->celular}}</p>
                     </div>
                     <div>
-                        <p>Telefone:</p>
+                        <p>Telefone Fixo:</p>
                         <p class="font-normal text-gray-700 dark:text-gray-400">{{$empresas->telefone}}</p>
                     </div>
                     <div>
@@ -69,14 +66,14 @@
                     <div>
                     </div>
                     <a href="{{route('empresa.edit',['empresa'=>$empresas->id])}} " class="flex justify-center items-center">
-                        <button type="button" class="text-white focus:ring-4 focus:outline-none focus:ring-yellow-300 bg-yellow-600 hover:bg-yellow-400  font-medium rounded-lg text-sm px-5 py-2.5 text-center w-1/2 ">
+                        <button type="button" class="text-white bg-yellow-600 hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-yellow-300 transition duration-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center w-1/2">
                             Editar
                         </button>
                     </a>
-                    <a href="{{route('empresa.destroy',[$empresas->id])}}" class="flex justify-center items-center" id="delete-link">
-                        <button type="button" class="text-white bg-red-700 hover:bg-red-500 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center w-1/2 ">
+                    <a href="{{route('empresa.destroy',[$empresas->id])}}" class="flex justify-center items-center delete-link">
+                        <button type="button" class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 transition duration-300   font-bold rounded-lg text-sm px-5 py-2.5 text-center w-1/2">
                             Excluir
-                        </button>
+                        </button>   
                     </a>
                 </div>
                 @endforeach
@@ -85,8 +82,8 @@
     </div>
     </div>
     <div class="me-36 text-end absolute">
-        <a href="{{route('empresa.create')}}" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm fixed right-10 bottom-10">
-            <button type="submit" class="w-16 h-16 flex justify-center items-center">
+        <a href="{{route('empresa.create')}}" class="focus:outline-none text-white font-medium rounded-full text-sm fixed right-10 bottom-10" style="background-color:#181818     ">
+            <button type="submit" class="w-16 h-16 flex justify-center items-center hover:hover-white">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-8 h-8">
                     <path fill="#ffffff" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z" />
                 </svg>
@@ -95,11 +92,13 @@
     </div>
 
     <script>
-        document.getElementById('delete-link').addEventListener('click', function(event) {
-            event.preventDefault(); // Previne a ação padrão do link
-            if (confirm("Tem certeza que deseja excluir esta empresa?")) {
-                window.location.href = this.href; // Redireciona para o link de exclusão
-            }
+        document.querySelectorAll('.delete-link').forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); // Previne a ação padrão do link
+                if (confirm("Tem certeza que deseja excluir esta empresa?")) {
+                    window.location.href = this.href; // Redireciona para o link de exclusão
+                }
+            });
         });
-    </script>
+        </script>
 </x-app-layout>

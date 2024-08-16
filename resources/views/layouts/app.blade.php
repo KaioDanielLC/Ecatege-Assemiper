@@ -15,7 +15,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-josefin antialiased">
+<body class=" antialiased" style="font-family: 'Josefin Sans', sans-serif;">
     <div class="min-h-screen bg-gray-50" >
         @include('layouts.navigation')
 

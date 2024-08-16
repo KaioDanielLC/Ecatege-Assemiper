@@ -19,25 +19,20 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        
-        
         $search = request('search');
-        
-        // $count = $this->empresa->count();
-
+    
         if ($search) {
             $empresas = $this->empresa
                 ->where('nome_empresa', 'like', '%' . $search . '%')
                 ->orWhere('nome_dono', 'like', '%' . $search . '%')
                 ->get();
         } else {
-            $empresas = $this->empresa->all();
             $empresas = $this->empresa->orderBy('nome_empresa', 'asc')->get();
         }
-
-
+    
         return view('pages.empresa.list', ['empresa' => $empresas, 'search' => $search]);
     }
+    
 
     /**
      * Show the form for creating a new resource.

@@ -1,6 +1,6 @@
 <nav x-data="{ open: false }">
     <!-- Primary Navigation Menu -->
-    <div class="  mx-auto px-4 sm:px-3 lg:px-8 " style="background-color: #ff5722;font-family:'Josefin Sans', sans-serif" >
+    <div class="  mx-auto px-4 sm:px-3 lg:px-8" style="background-color: #181818;" >
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
@@ -15,12 +15,15 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="text-white">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('empresa.index')" :active="request()->routeIs('empresa')" class="text-white">
+                    <x-nav-link :href="route('empresa.index')" :active="request()->routeIs('empresa.index')" class="text-white">
                         {{ __('Empresas Cadastradas') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('empresa.create')" :active="request()->routeIs('empresa.create')" class="text-white">
+                        {{ __('Cadastrar Empresa/Parceiro') }}
+                    </x-nav-link>
                 </div>
+                
+                
             </div>
 
             <!-- Settings Dropdown -->
