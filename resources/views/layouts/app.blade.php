@@ -16,7 +16,7 @@
 </head>
 
 <body class=" antialiased" style="font-family: 'Josefin Sans', sans-serif;">
-    <div class="min-h-screen bg-gray-50" >
+    <div class="min-h-screen bg-gray-50">
         @include('layouts.navigation')
 
         <!-- Page Heading -->
@@ -34,10 +34,13 @@
         </main>
     </div>
 </body>
+
 </html>
 
 <script>
     document.querySelector('[aria-label="Close"]').addEventListener('click', function() {
         document.getElementById('alert-border-1').style.display = 'none';
+
     });
+
 </script>
