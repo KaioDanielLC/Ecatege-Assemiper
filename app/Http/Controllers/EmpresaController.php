@@ -93,6 +93,12 @@ class EmpresaController extends Controller
      */
     public function update(Request $request, Empresa $empresa)
     {
+        $request->validate([
+            'email' => 'required|unique:empresas',
+        ],['email.unique' => 'Este email já está sendo utilizado.',
+        
+        ]);
+        
         $id = $empresa->id;
         $update = $this->empresa->where('id', $id)->update($request->except(['_token', '_method']));
         if ($update) {
