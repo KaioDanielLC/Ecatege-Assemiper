@@ -1,4 +1,4 @@
-<x-app-layout>     @if (session()->has('message'))
+<x-app-layout> @if (session()->has('message'))
     <div id="alert-border-1" class="flex items-center p-4 mb-4 text-blue-100 border-t-4 border-blue-700 bg-blue-400" role="alert">
         <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
@@ -17,14 +17,13 @@
     <div class="flex justify-end p-6">
         <form class="flex w-full max-w-md" method="GET" action="{{ route('empresa.index') }}">
             <div class="relative flex-grow">
-                <input 
-                    type="text" 
-                    id="search" 
-                    name="search" 
-                    placeholder="Pesquisar empresa/Nome do Titular" 
-                    class="w-full p-2 text-sm border border-gray-300 rounded-lg text-dark focus:ring-blue-500 focus:border-blue-500" 
-                    value="{{ request('search') }}" 
-                />
+                <input
+                    type="text"
+                    id="search"
+                    name="search"
+                    placeholder="Pesquisar empresa/Nome do Titular"
+                    class="w-full p-2 text-sm border border-gray-300 rounded-lg text-dark focus:ring-blue-500 focus:border-blue-500"
+                    value="{{ request('search') }}" />
             </div>
             <button type="submit" class="ml-2 p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300">
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" aria-hidden="true">
@@ -41,7 +40,7 @@
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center col-span-2">{{$empresas->nome_empresa}}</h5>
                     <div>
                         <p>Nome do Titular:</p>
-                        <p class="font-normal text-gray-700 dark:text-gray-400">{{$empresas->nome_dono}}</p>
+                        <p  class="font-normal text-gray-700 dark:text-gray-400">{{$empresas->nome_dono}}</p>
                     </div>
                     <div>
                         <p>Endereço:</p>
@@ -69,7 +68,7 @@
                     <a href="{{route('empresa.destroy',[$empresas->id])}}" class="flex justify-center items-center delete-link">
                         <button type="button" class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 transition duration-300   font-bold rounded-lg text-sm px-5 py-2.5 text-center w-1/2">
                             Excluir
-                        </button>   
+                        </button>
                     </a>
                 </div>
                 @endforeach
@@ -78,7 +77,7 @@
     </div>
     </div>
     <div class="me-36 text-end absolute">
-        <a href="{{route('empresa.create')}}" class="focus:outline-none text-white font-medium rounded-full text-sm fixed right-10 bottom-10 bg-[#181818]" >
+        <a href="{{route('empresa.create')}}" class="focus:outline-none text-white font-medium rounded-full text-sm fixed right-10 bottom-10 bg-[#181818]">
             <button type="submit" class="w-16 h-16 flex justify-center items-center hover:hover-white">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-8 h-8">
                     <path fill="#ffffff" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z" />
@@ -90,14 +89,14 @@
     <script>
         document.querySelectorAll('.delete-link').forEach(function(link) {
             link.addEventListener('click', function(event) {
-                event.preventDefault(); 
+                event.preventDefault();
                 if (confirm("Tem certeza que deseja excluir esta empresa?")) {
                     window.location.href = this.href;
-                    
+
                 }
             });
         });
-        </script>
+    </script>
 
 
 </x-app-layout>

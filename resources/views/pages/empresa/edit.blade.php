@@ -30,13 +30,6 @@
                     <div>
                         <label for="email" class="block text-sm font-bold text-gray-600">Email*</label>
                         <input value="{{ $empresa->email }}" name="email" id="email" required type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                        @if ($errors->any())
-                        <ul class="text-sm text-red-600 space-y-1">
-                            @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                        @endif
                     </div>
                 </div>
                 <div class="mt-6 flex justify-end gap-4">

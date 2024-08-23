@@ -20,7 +20,7 @@
                     </div>
                     <div x-data>
                         <label for="telefone" class="block text-sm font-bold text-gray-600">Telefone Fixo<span class="text-red-700">*</span></label>
-                        <input x-mask="(99) 9999-9999" placeholder="(88) 9999-9999" name="telefone" id="telefone" required type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <input x-mask="(99) 9999-9999" placeholder="(99) 9999-9999" name="telefone" id="telefone" required type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                     </div>
                     <div x-data>
                         <label for="celular" class="block text-sm font-bold text-gray-600">Celular<span class="text-red-700">*</span></label>
