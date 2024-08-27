@@ -85,6 +85,25 @@
                             minlength="15" maxlength="15"
                             title="Formato: (XX) XXXXX-XXXX">
                     </div>
+                    <div x-data>
+                        <label for="WhatsApp" class="block text-sm font-bold text-gray-600">
+                            WhatsApp
+                            <span class="text-red-700">
+                                *
+                            </span>
+                        </label>
+                        <input
+                            x-mask="(99) 99999-9999"
+                            placeholder="(99) 9999-9999"
+                            name="Whatsapp"
+                            id="Whatsapp"
+                            required
+                            type="text"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                            pattern="\(\d{2}\) \d{5}-\d{4}"
+                            minlength="15" maxlength="15"
+                            title="Formato: (XX) XXXXX-XXXX">
+                    </div>
                     <div>
                         <label
                             for="email"

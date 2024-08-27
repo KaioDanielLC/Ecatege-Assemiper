@@ -51,12 +51,16 @@
                         <p class="font-normal text-gray-700 dark:text-gray-400">{{$empresas->celular}}</p>
                     </div>
                     <div>
+                        <p>WhatsApp:</p>
+                        <p class="font-normal text-gray-700 dark:text-gray-400">{{$empresas->whatsapp}}</p>
+                    </div>
+                    <div>
                         <p>Telefone Fixo:</p>
                         <p class="font-normal text-gray-700 dark:text-gray-400">{{$empresas->telefone}}</p>
                     </div>
-                    <div>
+                    <div >
                         <p>Email:</p>
-                        <p class="font-normal text-gray-700 dark:text-gray-400 ">{{$empresas->email}}</p>
+                        <p class="font-normal text-gray-700 dark:text-gray-400 break-all ">{{$empresas->email}}</p>
                     </div>
                     <div>
                     </div>

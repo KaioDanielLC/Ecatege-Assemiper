@@ -62,6 +62,7 @@ class EmpresaController extends Controller
             'telefone' => $request->input('telefone'),
             'celular' => $request->input('celular'),
             'email' => $request->input('email'),
+            'whatsapp' => $request->input('whatsapp'),
         ]); 
     
         if ($created) {
