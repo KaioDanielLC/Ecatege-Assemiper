@@ -8,28 +8,96 @@
                 <input type="hidden" name="_method" value="PUT">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label for="nome_empresa" class="block text-sm font-bold text-gray-600">Nome da Empresa*</label>
-                        <input value="{{ $empresa->nome_empresa }}" name="nome_empresa" id="nome_empresa" required type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <label
+                            for="nome_empresa"
+                            class="block text-sm font-bold text-gray-600">
+                            Nome da Empresa
+                        </label>
+                        <input
+                            value="{{ $empresa->nome_empresa }}"
+                            name="nome_empresa"
+                            id="nome_empresa"
+                            required
+                            type="text"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                     </div>
                     <div>
-                        <label for="nome_dono" class="block text-sm font-bold text-gray-600">Nome do Titular*</label>
-                        <input value="{{ $empresa->nome_dono }}" name="nome_dono" id="nome_dono" required type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <label
+                            for="nome_dono"
+                            class="block text-sm font-bold text-gray-600">
+                            Nome do Titular
+                        </label>
+                        <input
+                            value="{{ $empresa->nome_dono }}"
+                            name="nome_dono"
+                            id="nome_dono"
+                            required
+                            type="text"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                     </div>
                     <div>
-                        <label for="endereco" class="block text-sm font-bold text-gray-600">Endereço*</label>
-                        <input value="{{ $empresa->endereco }}" name="endereco" id="endereco" required type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <label
+                            for="endereco"
+                            class="block text-sm font-bold text-gray-600">
+                            Endereço
+                        </label>
+                        <input
+                            value="{{ $empresa->endereco }}"
+                            name="endereco"
+                            id="endereco"
+                            required
+                            type="text"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                     </div>
                     <div x-data>
-                        <label for="telefone" class="block text-sm font-bold text-gray-600">Telefone*</label>
-                        <input value="{{ $empresa->telefone }}" x-mask="(99) 9999-9999" placeholder="(99) 9999-9999" name="telefone" id="telefone" required type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <label
+                            for="telefone"
+                            class="block text-sm font-bold text-gray-600">
+                            Telefone
+                        </label>
+                        <input
+                            value="{{ $empresa->telefone }}"
+                            x-mask="(99) 9999-9999"
+                            placeholder="(99) 9999-9999"
+                            name="telefone" id="telefone"
+                            required
+                            type="text"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                            pattern="\(\d{2}\) \d{4}-\d{4}"
+                            minlength="14" maxlength="14"
+                            title="Formato: (XX) XXXX-XXXX">
                     </div>
                     <div x-data>
-                        <label for="celular" class="block text-sm font-bold text-gray-600">Celular*</label>
-                        <input value="{{ $empresa->celular }}" x-mask="(99) 9999-9999" placeholder="(99) 9999-9999" name="celular" id="celular" required type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <label
+                            for="celular"
+                            class="block text-sm font-bold text-gray-600">
+                            Celular
+                        </label>
+                        <input
+                            value="{{ $empresa->celular }}"
+                            x-mask="(99) 99999-9999"
+                            placeholder="(99) 99999-9999"
+                            name="celular"
+                            id="celular"
+                            required type="text"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                            pattern="\(\d{2}\) \d{5}-\d{4}"
+                            minlength="15" maxlength="15"
+                            title="Formato: (XX) XXXXX-XXXX">
                     </div>
                     <div>
-                        <label for="email" class="block text-sm font-bold text-gray-600">Email*</label>
-                        <input value="{{ $empresa->email }}" name="email" id="email" required type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <label
+                            for="email"
+                            class="block text-sm font-bold text-gray-600">
+                            Email
+                        </label>
+                        <input
+                            value="{{ $empresa->email }}"
+                            name="email"
+                            id="email"
+                            required
+                            type="text"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                     </div>
                 </div>
                 <div class="mt-6 flex justify-end gap-4">
@@ -42,4 +110,3 @@
         </div>
     </div>
 </x-app-layout>
-

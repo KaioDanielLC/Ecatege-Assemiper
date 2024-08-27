@@ -47,7 +47,7 @@
                         <p class="font-normal text-gray-700 dark:text-gray-400">{{$empresas->endereco}}</p>
                     </div>
                     <div>
-                        <p>Celular:</p>
+                        <p>Celular(WhatsApp):</p>
                         <p class="font-normal text-gray-700 dark:text-gray-400">{{$empresas->celular}}</p>
                     </div>
                     <div>
@@ -61,7 +61,7 @@
                     <div>
                     </div>
                     <a href="{{route('empresa.edit',['empresa'=>$empresas->id])}} " class="flex justify-center items-center">
-                        <button type="button" class="text-white bg-yellow-600 hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-yellow-300 transition duration-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center w-1/2">
+                        <button type="button" class="text-white bg-yellow-500 hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-yellow-300 transition duration-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center w-1/2">
                             Editar
                         </button>
                     </a>

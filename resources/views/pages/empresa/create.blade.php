@@ -7,28 +7,112 @@
                 @csrf
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label for="nome_empresa" class="block text-sm font-bold text-gray-600">Nome da Empresa<span class="text-red-700">*</span></label>
-                        <input name="nome_empresa" id="nome_empresa" placeholder="Ecatege" required type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <label
+                            for="nome_empresa"
+                            class="block text-sm font-bold text-gray-600">
+                            Nome da Empresa
+                            <span class="text-red-700">
+                                *
+                            </span>
+                        </label>
+                        <input
+                            name="nome_empresa"
+                            id="nome_empresa"
+                            placeholder="Ecatege"
+                            required t
+                            ype="text"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                     </div>
                     <div>
-                        <label for="nome_dono" class="block text-sm font-bold text-gray-600">Nome do Titular<span class="text-red-700">*</span></label>
-                        <input name="nome_dono" id="nome_dono" placeholder="Gilvam " required type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <label
+                            for="nome_dono"
+                            class="block text-sm font-bold text-gray-600">
+                            Nome do Titular
+                            <span
+                                class="text-red-700">
+                                *
+                            </span>
+                        </label>
+                        <input
+                            name="nome_dono"
+                            id="nome_dono"
+                            placeholder="Gilvam "
+                            required type="text"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                     </div>
                     <div>
-                        <label for="endereco" class="block text-sm font-bold text-gray-600">Endereço<span class="text-red-700">*</span></label>
-                        <input name="endereco" id="endereco" placeholder="Rua/Avenida/Travessa" required type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <label
+                            for="endereco"
+                            class="block text-sm font-bold text-gray-600">
+                            Endereço
+                            <span
+                                class="text-red-700">
+                                *
+                            </span>
+                        </label>
+                        <input
+                            name="endereco"
+                            id="endereco"
+                            placeholder="Rua/Avenida/Travessa"
+                            required type="text"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                     </div>
                     <div x-data>
-                        <label for="telefone" class="block text-sm font-bold text-gray-600">Telefone Fixo<span class="text-red-700">*</span></label>
-                        <input x-mask="(99) 9999-9999" placeholder="(99) 9999-9999" name="telefone" id="telefone" required type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <label
+                            for="telefone"
+                            class="block text-sm font-bold text-gray-600">
+                            Telefone Fixo
+                            <span class="text-red-700">
+                                *
+                            </span>
+                        </label>
+                        <input
+                            x-mask="(99) 9999-9999"
+                            placeholder="(99) 9999-9999"
+                            name="telefone" id="telefone"
+                            required
+                            type="text"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                            pattern="\(\d{2}\) \d{4}-\d{4}"
+                            minlength="14" maxlength="14"
+                            title="Formato: (XX) XXXX-XXXX">
                     </div>
                     <div x-data>
-                        <label for="celular" class="block text-sm font-bold text-gray-600">Celular<span class="text-red-700">*</span></label>
-                        <input x-mask="(99) 99999-9999" placeholder="(88) 9999-9999" name="celular" id="celular" required type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <label for="celular" class="block text-sm font-bold text-gray-600">
+                            Celular
+                            <span class="text-red-700">
+                                *
+                            </span>
+                        </label>
+                        <input
+                            x-mask="(99) 99999-9999"
+                            placeholder="(88) 9999-9999"
+                            name="celular"
+                            id="celular"
+                            required
+                            type="text"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                            pattern="\(\d{2}\) \d{5}-\d{4}"
+                            minlength="15" maxlength="15"
+                            title="Formato: (XX) XXXXX-XXXX">
                     </div>
                     <div>
-                        <label for="email" class="block text-sm font-bold text-gray-600">Email<span class="text-red-700">*</span></label>
-                        <input name="email" id="email" placeholder="user@gmail.com" required type="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <label
+                            for="email"
+                            class="block text-sm font-bold text-gray-600">
+                            Email
+                            <span
+                                class="text-red-700">
+                                *
+                            </span>
+                        </label>
+                        <input
+                            name="email"
+                            id="email"
+                            placeholder="user@gmail.com"
+                            required
+                            type="email"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                         @if ($errors->any())
                         <ul class="text-sm text-red-600 space-y-1">
                             @foreach ($errors->all() as $error)
