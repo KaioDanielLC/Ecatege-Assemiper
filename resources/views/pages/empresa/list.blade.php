@@ -26,7 +26,7 @@
                     class="w-full p-2 text-sm border border-gray-300 rounded-lg text-dark focus:ring-blue-500 focus:border-blue-500"
                     value="{{ request('search') }}" />
             </div>
-            <button type="submit" class="ml-2 p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300">
+            <button type="submit" class="ml-2 p-2 bg-[#2C6B5B] text-white rounded-lg focus:ring-4 focus:ring-green-700">
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" aria-hidden="true">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 19l-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
                 </svg>
@@ -97,17 +97,9 @@
     </div>
     </div>
     <div class="me-36 text-end absolute">
-        <!-- <a href="{{route('empresa.create')}}" class="focus:outline-none text-white font-medium rounded-full text-sm fixed right-10 bottom-10 bg-[#181818]">
-            <button type="submit" class="w-16 h-16 flex justify-center items-center hover:hover-white">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-8 h-8">
-                    <path fill="#ffffff" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z" />
-                </svg>
-            </button>
-        </a> -->
-
         <div x-data="{ open: false }">
             <!-- Botão para abrir o modal -->
-            <button @click="open = true" class="focus:outline-none text-white font-medium rounded-full text-sm fixed right-10 bottom-10 bg-[#181818]">
+            <button @click="open = true" class="focus:outline-none text-white font-medium rounded-full text-sm fixed right-10 bottom-10 bg-[#2C6B5B]">
                 <div class="w-16 h-16 flex justify-center items-center hover:hover-white">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-8 h-8">
                         <path fill="#ffffff" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z" />

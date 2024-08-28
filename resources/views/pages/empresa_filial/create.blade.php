@@ -17,6 +17,7 @@
                         </label>
                         <input
                             name="nome_empresa"
+                            value="(filial)"
                             id="nome_empresa"
                             placeholder="Ecatege"
                             required t
