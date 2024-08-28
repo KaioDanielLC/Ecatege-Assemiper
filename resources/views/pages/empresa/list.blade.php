@@ -37,7 +37,7 @@
             <div class="flex justify-center mt-10 gap-28 grid grid-cols-2 mb-10">
                 @foreach ($empresa as $empresas )
                 <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md h-96 w-96 grid grid-cols-2 ">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center col-span-2">{{$empresas->nome_empresa}} Filial</h5>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center col-span-2">{{$empresas->nome_empresa}}</h5>
                     <div>
                         <p>Nome do Titular:</p>
                         <p class="font-normal text-gray-700 dark:text-gray-400">{{$empresas->nome_dono}}</p>
@@ -63,21 +63,35 @@
                         <p class="font-normal text-gray-700 dark:text-gray-400 break-all ">{{$empresas->email}} </p>
                     </div>
 
-            
-                <a href="{{route('empresa.edit',['empresa'=>$empresas->id])}} " class="flex justify-center items-center">
-                    <button type="button" class="text-white bg-yellow-500 hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-yellow-300 transition duration-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center w-1/2">
-                        Editar
-                    </button>
-                </a>
-                <a href="{{route('empresa.destroy',[$empresas->id])}}" class="flex justify-center items-center delete-link">
-                    <button type="button" class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 transition duration-300   font-bold rounded-lg text-sm px-5 py-2.5 text-center w-1/2">
-                        Excluir
-                    </button>
-                </a>
+
+                    <a href="{{route('empresa.edit',['empresa'=>$empresas->id])}} " class="flex justify-center items-center">
+                        <button type="button" class="text-white bg-yellow-500 hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-yellow-300 transition duration-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center w-1/2">
+                            Editar
+                        </button>
+                    </a>
+                    <a href="{{route('empresa.destroy',[$empresas->id])}}" class="flex justify-center items-center delete-link">
+                        <button type="button" class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 transition duration-300   font-bold rounded-lg text-sm px-5 py-2.5 text-center w-1/2">
+                            Excluir
+                        </button>
+                    </a>
+                    <div id="confirmModal"
+                        class="fixed inset-0 z-50 hidden bg-gray-900 bg-opacity-50 flex items-center justify-center">
+                        <div class="bg-white p-6 rounded-lg shadow-lg w-80">
+
+                            <p class="mb-4">Tem certeza que deseja excluir esta empresa?</p>
+                            <div style="text-align: center;" class="flex justify-end space-x-4">
+                                <button id="cancelBtn"
+                                    class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Cancelar</button>
+                                <a id="confirmDeleteBtn" href="#"
+                                    class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700">Excluir</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
-    </div>
     </div>
     </div>
     <div class="me-36 text-end absolute">
@@ -91,13 +105,26 @@
     </div>
 
     <script>
-        document.querySelectorAll('.delete-link').forEach(function(link) {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                if (confirm("Tem certeza que deseja excluir esta empresa?")) {
-                    window.location.href = this.href;
+        document.addEventListener('DOMContentLoaded', function() {
+            const confirmModal = document.getElementById('confirmModal');
+            const cancelBtn = document.getElementById('cancelBtn');
+            const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+            let deleteUrl = '';
 
-                }
+            document.querySelectorAll('.delete-link').forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    deleteUrl = this.href;
+                    confirmModal.classList.remove('hidden'); // Exibe o modal
+                });
+            });
+
+            cancelBtn.addEventListener('click', function() {
+                confirmModal.classList.add('hidden'); // Oculta o modal
+            });
+
+            confirmDeleteBtn.addEventListener('click', function() {
+                window.location.href = deleteUrl; // Redireciona para a URL de exclusão
             });
         });
     </script>
