@@ -37,10 +37,10 @@
             <div class="flex justify-center mt-10 gap-28 grid grid-cols-2 mb-10">
                 @foreach ($empresa as $empresas )
                 <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md h-96 w-96 grid grid-cols-2 ">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center col-span-2">{{$empresas->nome_empresa}}</h5>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center col-span-2">{{$empresas->nome_empresa}} Filial</h5>
                     <div>
                         <p>Nome do Titular:</p>
-                        <p  class="font-normal text-gray-700 dark:text-gray-400">{{$empresas->nome_dono}}</p>
+                        <p class="font-normal text-gray-700 dark:text-gray-400">{{$empresas->nome_dono}}</p>
                     </div>
                     <div>
                         <p>Endereço:</p>
@@ -58,26 +58,26 @@
                         <p>Telefone Fixo:</p>
                         <p class="font-normal text-gray-700 dark:text-gray-400">{{$empresas->telefone}}</p>
                     </div>
-                    <div >
-                        <p>Email:</p>
-                        <p class="font-normal text-gray-700 dark:text-gray-400 break-all ">{{$empresas->email}}</p>
-                    </div>
                     <div>
+                        <p>Email:</p>
+                        <p class="font-normal text-gray-700 dark:text-gray-400 break-all ">{{$empresas->email}} </p>
                     </div>
-                    <a href="{{route('empresa.edit',['empresa'=>$empresas->id])}} " class="flex justify-center items-center">
-                        <button type="button" class="text-white bg-yellow-500 hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-yellow-300 transition duration-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center w-1/2">
-                            Editar
-                        </button>
-                    </a>
-                    <a href="{{route('empresa.destroy',[$empresas->id])}}" class="flex justify-center items-center delete-link">
-                        <button type="button" class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 transition duration-300   font-bold rounded-lg text-sm px-5 py-2.5 text-center w-1/2">
-                            Excluir
-                        </button>
-                    </a>
-                </div>
-                @endforeach
+
+            
+                <a href="{{route('empresa.edit',['empresa'=>$empresas->id])}} " class="flex justify-center items-center">
+                    <button type="button" class="text-white bg-yellow-500 hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-yellow-300 transition duration-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center w-1/2">
+                        Editar
+                    </button>
+                </a>
+                <a href="{{route('empresa.destroy',[$empresas->id])}}" class="flex justify-center items-center delete-link">
+                    <button type="button" class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 transition duration-300   font-bold rounded-lg text-sm px-5 py-2.5 text-center w-1/2">
+                        Excluir
+                    </button>
+                </a>
             </div>
+            @endforeach
         </div>
+    </div>
     </div>
     </div>
     <div class="me-36 text-end absolute">
