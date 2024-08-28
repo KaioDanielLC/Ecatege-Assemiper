@@ -47,7 +47,7 @@
                         <p class="font-normal text-gray-700 dark:text-gray-400">{{$empresas->endereco}}</p>
                     </div>
                     <div>
-                        <p>Celular(WhatsApp):</p>
+                        <p>Celular:</p>
                         <p class="font-normal text-gray-700 dark:text-gray-400">{{$empresas->celular}}</p>
                     </div>
                     <div>
