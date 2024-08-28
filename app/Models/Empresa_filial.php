@@ -10,13 +10,13 @@ class Empresa_filial extends Model
     use HasFactory;
     
     protected $fillable =[
-        '',
+        'empresas_id',
         'nome_empresa',
         'nome_dono',
         'endereco',
         'telefone',
         'celular',
-        'whatapp',
+        'whatsapp',
         'email',
     ];
 }

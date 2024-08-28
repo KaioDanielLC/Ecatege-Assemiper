@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\EmpresaFilialController;
 use App\Http\Controllers\CountController;
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -23,6 +24,7 @@ Route::get('/empresa', function () {
 Route::get('/dashboard', [CountController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::resource('empresa', EmpresaController::class)->withTrashed()->middleware(['auth', 'verified']);
+Route::resource('empresa_filial', EmpresaFilialController::class)->withTrashed()->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

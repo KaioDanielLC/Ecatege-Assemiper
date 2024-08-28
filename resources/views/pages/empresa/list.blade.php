@@ -13,6 +13,7 @@
             </svg>
         </button>
     </div>
+
     @endif
     <div class="flex justify-end p-6">
         <form class="flex w-full max-w-md" method="GET" action="{{ route('empresa.index') }}">
@@ -32,6 +33,7 @@
             </button>
         </form>
     </div>
+
     <div class=" flex justify-center">
         <div class=" w-4/6 ">
             <div class="flex justify-center mt-10 gap-28 grid grid-cols-2 mb-10">
@@ -95,13 +97,52 @@
     </div>
     </div>
     <div class="me-36 text-end absolute">
-        <a href="{{route('empresa.create')}}" class="focus:outline-none text-white font-medium rounded-full text-sm fixed right-10 bottom-10 bg-[#181818]">
+        <!-- <a href="{{route('empresa.create')}}" class="focus:outline-none text-white font-medium rounded-full text-sm fixed right-10 bottom-10 bg-[#181818]">
             <button type="submit" class="w-16 h-16 flex justify-center items-center hover:hover-white">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-8 h-8">
                     <path fill="#ffffff" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z" />
                 </svg>
             </button>
-        </a>
+        </a> -->
+
+        <div x-data="{ open: false }">
+            <!-- Botão para abrir o modal -->
+            <button @click="open = true" class="focus:outline-none text-white font-medium rounded-full text-sm fixed right-10 bottom-10 bg-[#181818]">
+                <div class="w-16 h-16 flex justify-center items-center hover:hover-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-8 h-8">
+                        <path fill="#ffffff" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z" />
+                    </svg>
+                </div>
+            </button>
+
+            <!-- Modal -->
+            <div x-show="open"
+                class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
+                x-cloak>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden w-2/6">
+
+                    <div class="text-end px-5">
+                        <button @click="open = false" class="text-gray-900 hover:text-gray-600 text-2xl text-end ">&times;</button>
+                    </div>
+
+                    <h3 class="text-lg font-semibold text-center">Deseja cadastrar um empresa matriz ou filial?</h3>
+                    <!-- Corpo do Modal -->
+                    <div class="p-6 text-center">
+                        <a href="{{route('empresa.create')}}">
+                            <x-danger-button>
+                                Matrix
+                            </x-danger-button>
+                        </a>
+                        <a href="{{route('empresa_filial.create')}}">
+                            <x-danger-button>
+                                Filial
+                            </x-danger-button>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
