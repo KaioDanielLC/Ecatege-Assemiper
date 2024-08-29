@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Empresa extends Model
 {
+
+    
     use HasFactory;
 
     protected $fillable =[
@@ -16,7 +18,7 @@ class Empresa extends Model
         'endereco',
         'telefone',
         'celular',
-        'whatapp',
+        'whatsapp',
         'email',
     ];
 }

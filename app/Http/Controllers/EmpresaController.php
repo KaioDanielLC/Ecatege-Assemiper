@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empresa;
+
 use Illuminate\Http\Request;
 
 class EmpresaController extends Controller
@@ -19,6 +20,7 @@ class EmpresaController extends Controller
      */
     public function index()
     {
+        
         $search = request('search');
     
         if ($search) {
@@ -30,7 +32,7 @@ class EmpresaController extends Controller
             $empresas = $this->empresa->orderBy('nome_empresa', 'asc')->get();
         }
     
-        return view('pages.empresa.list', ['empresa' => $empresas, 'search' => $search]);
+        return view('pages.empresa.list', ['empresa' => $empresas, 'search' => $search ]);
     }
     
 

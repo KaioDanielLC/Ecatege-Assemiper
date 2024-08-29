@@ -20,7 +20,10 @@ class EmpresaFilialController extends Controller
      */
     public function index()
     {
-        //
+        $empresa_filial = empresa_filial::all();
+    
+
+        return view ('pages.empresa_filial.list', ['empresa_filial' => $empresa_filial] );
     }
 
     /**
@@ -54,6 +57,9 @@ class EmpresaFilialController extends Controller
             'email' => $request->input('email'),
             'whatsapp' => $request->input('whatsapp'),
         ]); 
+        if ($created) {
+            return redirect()->route('empresa_filial.index')->with('message', 'Filial cadastrada com sucesso');
+        }
     }
 
     /**
@@ -61,7 +67,9 @@ class EmpresaFilialController extends Controller
      */
     public function show(Empresa_filial $empresa_filial)
     {
-        //
+        $id = $empresa_filial->id;
+        $this->empresa_filial->where('id', $id)->delete();
+        return redirect()->route('empresa_filial.index')->with('message', 'Filial apagada com sucesso');
     }
 
     /**
@@ -69,7 +77,8 @@ class EmpresaFilialController extends Controller
      */
     public function edit(Empresa_filial $empresa_filial)
     {
-        //
+        $empresas = empresa::all();
+        return view('pages.empresa_filial.edit', ['empresa_filial' => $empresa_filial , 'empresas' => $empresas]);
     }
 
     /**
@@ -77,7 +86,12 @@ class EmpresaFilialController extends Controller
      */
     public function update(Request $request, Empresa_filial $empresa_filial)
     {
-        //
+        $id = $empresa_filial->id;
+        $update = $this->empresa_filial->where('id', $id)->update($request->except(['_token', '_method']));
+        if ($update) {
+
+            return redirect()->route('empresa_filial.index')->with('message', 'Filial atualizada com sucesso');
+        }
     }
 
     /**
@@ -85,6 +99,8 @@ class EmpresaFilialController extends Controller
      */
     public function destroy(Empresa_filial $empresa_filial)
     {
-        //
+        $id = $empresa_filial->id;
+        $this->empresa_filial->where('id', $id)->delete();
+        return redirect()->route('empresa_filial.index')->with('message', 'Filial apagada com sucesso');
     }
 }

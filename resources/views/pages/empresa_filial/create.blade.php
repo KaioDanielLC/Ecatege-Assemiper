@@ -17,7 +17,6 @@
                         </label>
                         <input
                             name="nome_empresa"
-                            value="(filial)"
                             id="nome_empresa"
                             placeholder="Ecatege"
                             required t
@@ -167,7 +166,7 @@
 
                 <div class="mt-6 flex justify-end gap-4">
                     <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-bold text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">Confirmar</button>
-                    <a href="{{ route('empresa.index') }}">
+                    <a href="{{ route('empresa_filial.index') }}">
                         <button type="button" class="inline-flex justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-bold text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">Cancelar</button>
                     </a>
                 </div>

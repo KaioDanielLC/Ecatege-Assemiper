@@ -106,7 +106,7 @@
                         <input
                             x-mask="(99) 99999-9999"
                             placeholder="(99) 9999-9999"
-                            name="Whatsapp"
+                            name="whatsapp"
                             id="Whatsapp"
                             required
                             type="text"
