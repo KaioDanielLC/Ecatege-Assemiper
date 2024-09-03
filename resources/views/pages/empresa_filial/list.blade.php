@@ -91,6 +91,18 @@
                             Excluir
                         </button>
                     </a>
+                    <div id="confirmModal"
+                        class="fixed inset-0 z-50 hidden bg-gray-900 bg-opacity-50 flex items-center justify-center">
+                        <div class="bg-white p-6 rounded-lg shadow-lg w-80">
+                            <p class="mb-4">Tem certeza que deseja excluir esta empresa?</p>
+                            <div style="text-align: center;" class="flex justify-end space-x-4">
+                                <button id="cancelBtn"
+                                    class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Cancelar</button>
+                                <a id="confirmDeleteBtn" href="#"
+                                    class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700">Excluir</a>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
 

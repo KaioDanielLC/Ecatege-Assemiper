@@ -21,6 +21,9 @@ class EmpresaFilialController extends Controller
     public function index()
     {
         $empresa_filial = empresa_filial::all();
+        
+        
+        
 
         $search = request('search');
     
@@ -36,7 +39,7 @@ class EmpresaFilialController extends Controller
         
     
 
-        return view ('pages.empresa_filial.list', ['empresa_filial' => $empresa_filial, 'search' => $search ]);
+        return view ('pages.empresa_filial.list', ['empresa_filial' => $empresa_filial, 'search' => $search]);
     }
 
     /**

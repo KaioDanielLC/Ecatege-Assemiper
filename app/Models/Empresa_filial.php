@@ -19,4 +19,6 @@ class Empresa_filial extends Model
         'whatsapp',
         'email',
     ];
+
+    
 }
