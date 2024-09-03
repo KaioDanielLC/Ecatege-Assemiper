@@ -18,11 +18,8 @@
                     <x-nav-link :href="route('empresa.index')" :active="request()->routeIs('empresa.index')" class="text-white">
                         {{ __('Empresas Cadastradas') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('empresa.create')" :active="request()->routeIs('empresa.create')" class="text-white">
-                        {{ __('Cadastrar Empresa/Parceiro') }}
-                    </x-nav-link>
                     <x-nav-link :href="route('empresa_filial.index')" :active="request()->routeIs('empresa_filial.index')" class="text-white">
-                        {{ __('Listar filial de empresa') }}
+                        {{ __('Filiais Cadastradas') }}
                     </x-nav-link>
                 </div>
                 

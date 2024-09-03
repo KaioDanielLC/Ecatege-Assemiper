@@ -21,9 +21,22 @@ class EmpresaFilialController extends Controller
     public function index()
     {
         $empresa_filial = empresa_filial::all();
+
+        $search = request('search');
+    
+        if ($search) {
+            $empresa_filial = $this->empresa_filial
+                ->where('nome_empresa', 'like', '%' . $search . '%')
+                ->orWhere('nome_dono', 'like', '%' . $search . '%')
+                ->get();
+        } else {
+            $empresa_filial = $this->empresa_filial->orderBy('nome_empresa', 'asc')->get();
+        };
+    
+        
     
 
-        return view ('pages.empresa_filial.list', ['empresa_filial' => $empresa_filial] );
+        return view ('pages.empresa_filial.list', ['empresa_filial' => $empresa_filial, 'search' => $search ]);
     }
 
     /**

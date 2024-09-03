@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="flex justify-center items-center min-h-screen">
         <div class="max-w-4xl w-full bg-white shadow-md rounded-lg p-6">
-            <h2 class="text-2xl font-semibold text-gray-700 text-center mb-6">Cadastrar Empresa/Parceiro</h2>
+            <h2 class="text-2xl font-semibold text-gray-700 text-center mb-6">Cadastrar Filiais</h2>
 
             <form action="{{ route('empresa_filial.store') }}" method="POST">
                 @csrf
