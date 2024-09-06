@@ -20,5 +20,8 @@ class Empresa_filial extends Model
         'email',
     ];
 
-    
+    public function empresa()
+    {
+        return $this->belongsTo(Empresa::class, 'empresas_id');
+    }
 }

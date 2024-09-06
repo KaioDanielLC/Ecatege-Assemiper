@@ -9,6 +9,7 @@ class Empresa extends Model
 {
 
     
+    
     use HasFactory;
 
     protected $fillable =[
@@ -21,4 +22,9 @@ class Empresa extends Model
         'whatsapp',
         'email',
     ];
+
+    public function filiais()
+    {
+        return $this->hasMany(Empresa_Filial::class, 'empresa_id');
+    }
 }
