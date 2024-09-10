@@ -18,7 +18,13 @@ export default {
             height:{
                 'hAuth':'100px',
                 'hNav':'55px',
-            }
+            },
+            backgroundImage: {
+                'logo-retina': "url('img/favicon@2x.png')",
+            },
+            backgroundSize: {
+                'contain': 'contain',
+            },
         },
     },
 

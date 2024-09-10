@@ -22,7 +22,7 @@
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gradient-to-b from-[#BF360C] to-[#FF7043]">
         <div>
             <a href="/">
-                <img src="/img/favicon.png" class="w-logo-auth h-hAuth" alt="">
+                <img src="/img/favicon.png" class="w-logo-auth h-hAuth bg-logo-retina bg-contain " alt="">
             </a>
         </div>
 
