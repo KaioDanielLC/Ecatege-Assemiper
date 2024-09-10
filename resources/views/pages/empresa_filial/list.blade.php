@@ -73,7 +73,7 @@
                         <p class="font-normal text-gray-700 dark:text-gray-400 break-all ">{{$empresa_filiais->email}} </p>
                     </div>
                     <div>
-                        <p>Empresa matrix:</p>
+                        <p>Empresa Matriz:</p>
                         <p class="font-normal text-gray-700 dark:text-gray-400 ">{{$empresa_filiais->empresa->nome_empresa}} </p>
                     </div>
                     <div></div>

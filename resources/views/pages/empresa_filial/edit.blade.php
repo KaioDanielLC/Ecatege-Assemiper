@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <div class="flex justify-center items-center min-h-screen ">
         <div class="max-w-4xl w-full bg-white shadow-lg rounded-lg p-6">
-            <h2 class="text-2xl font-semibold text-gray-700 text-center mb-6">Editar empresa filial</h2>
+            <h2 class="text-2xl font-semibold text-gray-700 text-center mb-6">Editar empresa Filial</h2>
             <form action="{{ route('empresa_filial.update', ['empresa_filial' => $empresa_filial->id]) }}" method="post">
                 @csrf
                 <input type="hidden" name="_method" value="PUT">
@@ -123,7 +123,7 @@
                         <label
                             for="email"
                             class="block text-sm font-bold text-gray-600">
-                            Selecione a empresa matrix
+                            Selecione a empresa Matriz
                         </label>
                         <select
                             disabled

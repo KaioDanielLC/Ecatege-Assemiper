@@ -4,7 +4,7 @@
     <div class="flex justify-around mt-10">
         <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow text-justify">
             <a href="#">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Empresas cadastradas</h5>
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Empresas Matriz cadastradas</h5>
             </a>
             <p class="mb-3 font-normal text-gray-700">Número de empresas cadastradas: {{$count}}</p>
 
@@ -18,9 +18,9 @@
 
         <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow text-justify">
             <a href="#">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Empresas matriz cadastradas</h5>
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Empresas Filiais cadastradas</h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700">Número de empresas cadastradas: {{$count_filial}}</p>
+            <p class="mb-3 font-normal text-gray-700">Número de Filiais cadastradas: {{$count_filial}}</p>
 
             <a href="{{route('empresa_filial.index')}}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#2C6B5B] rounded-lg hover:bg-[#468676] focus:ring-4 focus:outline-none focus:ring-green-700">
                 Ver mais
