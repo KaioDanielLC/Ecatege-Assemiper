@@ -1,1 +1,1 @@
-<img src="{{asset('img/Ecatege.svg')}}" alt="logo">
+<img src="{{asset('img/favicon.png')}}" alt="logo" style="width: 45px; height: 50px;">

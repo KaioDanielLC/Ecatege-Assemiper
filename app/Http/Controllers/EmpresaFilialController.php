@@ -57,9 +57,9 @@ class EmpresaFilialController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'email' => 'required|unique:empresas',
-        ],['email.unique' => 'Este email já está sendo utilizado.',
-        
+            'email' => 'required|unique:empresa_filials,email',
+        ], [
+            'email.unique' => 'Este email já está sendo utilizado.',
         ]);
     
         // Criando a empresa

@@ -11,10 +11,14 @@ export default {
 
     theme: {
         extend: {
-            
-            fontFamily: {
-                
+            width: {
+                'logo-nav': '55px', // Largura personalizada para a barra de navegação
+                'logo-auth': '100px', // Largura personalizada para login/registro
             },
+            height:{
+                'hAuth':'100px',
+                'hNav':'55px',
+            }
         },
     },
 

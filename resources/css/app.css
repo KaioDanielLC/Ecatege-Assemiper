@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&display=swap');
 
-.font-josefin {
-    font-family: 'Josefin Sans', sans-serif;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
-
