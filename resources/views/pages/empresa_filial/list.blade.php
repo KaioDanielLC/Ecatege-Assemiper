@@ -1,5 +1,5 @@
 <x-app-layout> @if (session()->has('message'))
-    <div id="alert-border-1" class="flex items-center p-4 mb-4 text-blue-100 bg-blue-400" role="alert">
+    <div id="alert-border-1" class="flex items-center p-4 mb-4 text-blue-100 border-blue-700 bg-blue-400" role="alert">
         <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
         </svg>
@@ -22,7 +22,7 @@
                     type="text"
                     id="search"
                     name="search"
-                    placeholder="Pesquisar empresa/Nome do Titular"
+                    placeholder="Pesquisar Filial/Nome do Titular"
                     class="w-96 p-2 text-sm border border-gray-300 rounded-lg text-dark focus:ring-blue-500 focus:border-blue-500"
                     value="{{ request('search') }}" />
             </div>
@@ -32,13 +32,6 @@
                 </svg>
             </button>
         </form>
-        <div>
-            @if($search)
-            <div class="text-center mt-3 text-white">
-                buscando por: {{$search}}
-            </div>
-            @endif
-        </div>
     </div>
 
 
@@ -73,8 +66,8 @@
                         <p class="font-normal text-gray-700 dark:text-gray-400 break-all ">{{$empresa_filiais->email}} </p>
                     </div>
                     <div>
-                        <p>Empresa Matriz:</p>
-                        <p class="font-normal text-gray-700 dark:text-gray-400 ">{{$empresa_filiais->empresa->nome_empresa}} </p>
+                        <p>Empresa Matriz :</p>
+                        <p class="font-normal text-gray-700 dark:text-gray-400 ">{{$empresa_filiais->empresa->nome_empresa}}</p>
                     </div>
                     <div></div>
 
@@ -86,23 +79,21 @@
                             Editar
                         </button>
                     </a>
-                    <a href="{{route('empresa_filial.destroy',[$empresa_filiais->id])}}" class="flex justify-center items-center delete-link">
-                        <button type="button" class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 transition duration-300   font-bold rounded-lg text-sm px-5 py-2.5 text-center w-1/2">
+                    <a href="{{route('empresa_filial.destroy',[$empresa_filiais->id])}}" class="flex justify-center items-center delete-link" data-company-name="{{$empresa_filiais->nome_empresa}}">
+                        <button type="button" class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 transition duration-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center w-1/2">
                             Excluir
                         </button>
-                    </a>
-                    <div id="confirmModal"
-                        class="fixed inset-0 z-50 hidden bg-gray-900 bg-opacity-50 flex items-center justify-center">
-                        <div class="bg-white p-6 rounded-lg shadow-lg w-80">
-                            <p class="mb-4">Tem certeza que deseja excluir esta empresa?</p>
-                            <div style="text-align: center;" class="flex justify-end space-x-4">
-                                <button id="cancelBtn"
-                                    class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Cancelar</button>
-                                <a id="confirmDeleteBtn" href="#"
-                                    class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700">Excluir</a>
+                    </a>                    
+                    <div id="confirmModal" class="fixed inset-0 z-50 hidden bg-gray-900 bg-opacity-50 flex items-center justify-center">
+                        <div class="bg-white p-6 rounded-lg shadow-lg w-85">
+                            <p class="mb-4">Tem certeza que deseja excluir a filial <span id="companyName" class="font-semibold"></span> ?</p>
+                            <div class="flex justify-center space-x-4">
+                                <button id="cancelBtn" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Cancelar</button>
+                                <a id="confirmDeleteBtn" href="#" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700">Excluir</a>
                             </div>
                         </div>
                     </div>
+                    
 
                 </div>
 
@@ -125,28 +116,30 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const confirmModal = document.getElementById('confirmModal');
-            const cancelBtn = document.getElementById('cancelBtn');
-            const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
-            let deleteUrl = '';
+    const confirmModal = document.getElementById('confirmModal');
+    const cancelBtn = document.getElementById('cancelBtn');
+    const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+    const modalText = document.getElementById('companyName'); // Seleciona o elemento de texto do modal
+    let deleteUrl = '';
 
-            document.querySelectorAll('.delete-link').forEach(function(link) {
-                link.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    deleteUrl = this.href;
-                    confirmModal.classList.remove('hidden'); // Exibe o modal
-                });
-            });
-
-            cancelBtn.addEventListener('click', function() {
-                confirmModal.classList.add('hidden'); // Oculta o modal
-            });
-
-            confirmDeleteBtn.addEventListener('click', function() {
-                window.location.href = deleteUrl; // Redireciona para a URL de exclusão
-            });
+    document.querySelectorAll('.delete-link').forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const companyName = this.getAttribute('data-company-name'); // Obtém o nome da filial
+            deleteUrl = this.href;
+            modalText.textContent = companyName; // Atualiza o texto do modal com o nome da filial
+            confirmModal.classList.remove('hidden'); // Exibe o modal
         });
-    </script>
+    });
 
+    cancelBtn.addEventListener('click', function() {
+        confirmModal.classList.add('hidden'); // Oculta o modal
+    });
 
+    confirmDeleteBtn.addEventListener('click', function() {
+        window.location.href = deleteUrl; // Redireciona para a URL de exclusão
+    });
+});
+
+</script>
 </x-app-layout>
