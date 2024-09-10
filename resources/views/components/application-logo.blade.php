@@ -1,1 +1,1 @@
-<img src="{{asset('img/favicon.png')}}" alt="logo" style="width: 45px; height: 50px;">
+<img src="{{asset('img/favicon.png')}}" alt="logo" class="w-logo-nav h-hNav bg-logo-retina bg-contain">
