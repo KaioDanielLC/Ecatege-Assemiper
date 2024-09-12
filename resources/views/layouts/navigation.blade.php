@@ -6,10 +6,9 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center  " style="padding-left: 110px">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo ></x-application-logo>
+                        <x-application-logo></x-application-logo>
                     </a>
                 </div>
-
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="text-white">
