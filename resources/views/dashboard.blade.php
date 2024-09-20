@@ -1,7 +1,7 @@
 <x-app-layout>
 
 
-    <div class="flex justify-around mt-10">
+    <div class="flex justify-evenly mt-10">
         <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow text-justify">
             <a href="#">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Empresas Matriz cadastradas</h5>
