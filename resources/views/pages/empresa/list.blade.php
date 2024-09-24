@@ -33,13 +33,6 @@
                 </svg>
             </button>
         </form>
-        <div>
-            @if($search)
-                <div class="text-center mt-3 text-white">
-                    buscando por: {{$search}}
-                </div>
-            @endif
-        </div>
     </div>
 
     <div class="flex justify-center">

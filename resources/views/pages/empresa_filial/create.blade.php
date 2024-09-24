@@ -10,7 +10,7 @@
                         <label
                             for="nome_empresa"
                             class="block text-sm font-bold text-gray-600">
-                            Nome da Empresa
+                            Nome da Filial
                             <span class="text-red-700">
                                 *
                             </span>
