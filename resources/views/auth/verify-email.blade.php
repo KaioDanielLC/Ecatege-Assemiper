@@ -1,10 +1,7 @@
 <x-guest-layout>
     <div class="mb-4 text-sm text-gray-600">
-<<<<<<< HEAD
-    Para acessar o sistema da Ecatege, será necessária a verificação do email cadastrado pelo usuário. Se você não recebeu o e-mail, teremos prazer em lhe enviar outro.
-=======
-        Para acessar o sistema da Ecatege, será necessária a verificação do email cadastrado pelo usuário. Se você não recebeu o e-mail, teremos prazer em lhe enviar outro.    
->>>>>>> ce5283a (Email sem a logo do Laravel)
+
+    Para acessar o sistema da Ecatege, será necessária a verificação do email cadastrado pelo usuário.Se você não recebeu o e-mail, teremos prazer em lhe enviar outro.
     </div>
 
     @if (session('status') == 'verification-link-sent')
