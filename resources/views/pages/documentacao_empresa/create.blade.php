@@ -56,21 +56,21 @@
                             id="inscricao_municipal"
                             placeholder="111111"
                             maxlength="6"
+                            minlength="6"
                             required
                             type="text"
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                     </div>
                     <div>
                         <div>
-                            <label for="inscricao_municipal" class="block text-sm font-bold text-gray-600">
-                                Inscrição Municipal <span class="text-red-700">*</span>
+                            <label for="data_validade" class="block text-sm font-bold text-gray-600">
+                                Data de Validade <span class="text-red-700">*</span>
                             </label>
                             <input
                                 name="data_validade"
                                 id="data_validade"
-                                placeholder="31/12/2025"
                                 required
-                                type="text"
+                                type="date"
                                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                         </div>
                     </div>

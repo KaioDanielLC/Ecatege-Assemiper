@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nome_fantasia');
             $table->string('inscricao_municipal')->unique();
             $table->string('area_total');
-            $table->string('data_validade');
+            $table->date('data_validade');
             $table->string('area_utilizada');
             $table->string('te_prefeitura');
             $table->string('tp_prefeitura');
