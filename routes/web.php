@@ -4,11 +4,11 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\EmpresaFilialController;
 use App\Http\Controllers\CountController;
-
+use App\Http\Controllers\VerificacaoEmpresaController;
+use App\Models\VerificacaoEmpresa;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/', function () {
@@ -27,6 +27,7 @@ Route::get('/dashboard', [CountController::class, 'index'])->middleware(['auth',
 
 Route::resource('empresa', EmpresaController::class)->withTrashed()->middleware(['auth', 'verified']);
 Route::resource('empresa_filial', EmpresaFilialController::class)->withTrashed()->middleware(['auth', 'verified']);
+Route::resource('verificacao_empresa', VerificacaoEmpresaController::class)->withTrashed()->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -40,15 +41,15 @@ Route::get('/email/verify', function () {
 })->middleware('auth')->name('verification.notice');
 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-    $request->fulfill();
- 
-    return redirect('/home');
+$request->fulfill();
+
+return redirect('/home');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::post('/email/verification-notification', function (Request $request) {
-    $request->user()->sendEmailVerificationNotification();
+$request->user()->sendEmailVerificationNotification();
 
-    return back()->with('message', 'Verification link sent!');
+return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 

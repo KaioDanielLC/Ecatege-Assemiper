@@ -1,6 +1,6 @@
-<nav x-data="{ open: false }">
+<nav x-data="{ open: false }" >
     <!-- Primary Navigation Menu -->
-    <div class="  mx-auto px-4 sm:px-3 lg:px-8 bg-[#2C6B5B]">
+    <div class="  mx-auto px-4 sm:px-3 lg:px-8 bg-[#2C6B5B] ">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
@@ -15,10 +15,13 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     <x-nav-link :href="route('empresa.index')" :active="request()->routeIs('empresa.index')" class="text-white">
-                        {{ __('Empresas Cadastradas') }}
+                        {{ __('Empresas') }}
                     </x-nav-link>
                     <x-nav-link :href="route('empresa_filial.index')" :active="request()->routeIs('empresa_filial.index')" class="text-white">
-                        {{ __('Filiais Cadastradas') }}
+                        {{ __('Filiais') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('verificacao_empresa.index')" :active="request()->routeIs('verificacao_empresa.index')" class="text-white">
+                        {{ __('Documentação das Empresas') }}
                     </x-nav-link>
                 </div>
                 
