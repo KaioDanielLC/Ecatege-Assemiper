@@ -15,9 +15,7 @@ class EmpresaController extends Controller
     {
         $this->empresa = new Empresa();
     }
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         

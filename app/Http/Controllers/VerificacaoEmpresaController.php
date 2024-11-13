@@ -30,7 +30,7 @@ class VerificacaoEmpresaController extends Controller
     {
 
         $request->validate([
-            'inscricao_municipal' => 'required|unique:verificacaoempresas',
+            'inscricao_municipal' => 'required|unique:verificacao_empresas',
         ],['inscricao_municipal.unique' => 'Essa inscrição já está sendo usada',
         
         ]);

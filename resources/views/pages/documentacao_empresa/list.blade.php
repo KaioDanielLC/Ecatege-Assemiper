@@ -22,19 +22,20 @@
             <tbody>
                 @forelse ($verificacaoempresa as $verificacaoempresas)
                 <tr>
-                    <td class="align-middle"></td>
-                    <td class="align-middle"></td>
-                    <td class="align-middle"></td>
-                    <td class="align-middle"></td>
-                    <td class="align-middle"></td>
-                    <td class="align-middle"></td>
-                    <td class="align-middle"></td>
-                    <td class="align-middle"></td>
-                    <td class="align-middle"></td>
-                    <td class="align-middle"></td>
-                    <td class="align-middle"></td>
-                    <td class="align-middle"></td>
-                    <td class="align-middle"></td>
+                    <td class="align-middle">{{$verificacaoempresas->ano}}</td>
+                    <td class="align-middle">{{$verificacaoempresas->numero_pasta}}</td>
+                    <td class="align-middle">{{$verificacaoempresas->nome_fantasia}}</td>
+                    <td class="align-middle">{{$verificacaoempresas->inscricao_municipal}}</td>
+                    <td class="align-middle">{{$verificacaoempresas->area_total}}</td>
+                    <td class="align-middle">{{$verificacaoempresas->area_utilizada}}</td>
+                    <td class="align-middle">{{$verificacaoempresas->te_prefeitura}}</td>
+                    <td class="align-middle">{{$verificacaoempresas->tp_prefeitura}}</td>
+                    <td class="align-middle">{{$verificacaoempresas->arq_prefeitura}}</td>
+                    <td class="align-middle">{{$verificacaoempresas->ent_prefeitura}}</td>
+                    <td class="align-middle">{{$verificacaoempresas->te_prefeitura}}</td>
+                    <td class="align-middle">{{$verificacaoempresas->tp_prefeitura}}</td>
+                    <td class="align-middle">{{$verificacaoempresas->arq_bombeiro}}</td>
+                    <td class="align-middle">{{$verificacaoempresas->ent_bombeiro}}</td>
                 </tr>
                 
                 @empty
