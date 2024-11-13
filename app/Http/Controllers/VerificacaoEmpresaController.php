@@ -51,7 +51,7 @@ class VerificacaoEmpresaController extends Controller
             'te_bombeiro' => $request->input('te_bombeiro'),
             'tp_bombeiro' => $request->input('tp_bombeiro'),
             'arq_bombeiro' => $request->input('arq_bombeiro'),
-            'te_prefeitura' => $request->input('ent_bombeiro'),
+            'ent_bombeiro' => $request->input('ent_bombeiro'),
         ]); 
     
         if ($created) {

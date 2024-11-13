@@ -28,7 +28,7 @@
                             name="numero_pasta"
                             id="numero_pasta"
                             placeholder="23,48,50... "
-                            required 
+                            required
                             type="text"
                             maxlength="5"
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
@@ -42,7 +42,7 @@
                             name="nome_fantasia"
                             id="nome_fantasia"
                             placeholder="Ecatege/Assemiper/...."
-                            required 
+                            required
                             type="text"
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                     </div>
@@ -56,9 +56,23 @@
                             id="inscricao_municipal"
                             placeholder="111111"
                             maxlength="6"
-                            required 
+                            required
                             type="text"
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <div>
+                            <label for="inscricao_municipal" class="block text-sm font-bold text-gray-600">
+                                Inscrição Municipal <span class="text-red-700">*</span>
+                            </label>
+                            <input
+                                name="data_validade"
+                                id="data_validade"
+                                placeholder="31/12/2025"
+                                required
+                                type="text"
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        </div>
                     </div>
 
                     <div>
@@ -66,7 +80,7 @@
                             Área Total <span class="text-red-700">*</span>
                         </label>
                         <input
-                            name="area_total" 
+                            name="area_total"
                             id="area_total"
                             placeholder="90"
                             required
@@ -92,19 +106,111 @@
                             T/E (Prefeitura) <span class="text-red-700">*</span>
                         </label>
 
+                        <select name="te_prefeitura" id="te_prefeitura" class=" mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            <option value="pago">Sim</option>
+                            <option value="nao pago">Não</option>
+                        </select>
+                    </div>
+
+
+                    <div>
+                        <label for="tp_prefeitura" class="block text-sm font-bold text-gray-600">
+                            T/P (Prefeitura) <span class="text-red-700">*</span>
+                        </label>
+
+                        <select name="tp_prefeitura" id="tp_prefeitura" class=" mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            <option value="pago">Sim</option>
+                            <option value="nao pago">Não</option>
+                        </select>
+                    </div>
+
+
+                    <div>
+                        <label for="arq_prefeitura" class="block text-sm font-bold text-gray-600">
+                            Arq. (Prefeitura) <span class="text-red-700">*</span>
+                        </label>
+
+                        <select name="arq_prefeitura" id="arq_prefeitura" class=" mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            <option value="pago">Sim</option>
+                            <option value="nao pago">Não</option>
+                        </select>
+                    </div>
+
+
+                    <div>
+                        <label for="ent_prefeitura" class="block text-sm font-bold text-gray-600">
+                            Ent. (Prefeitura) <span class="text-red-700">*</span>
+                        </label>
+
+                        <select name="ent_prefeitura" id="ent_prefeitura" class=" mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            <option value="pago">Sim</option>
+                            <option value="nao pago">Não</option>
+                        </select>
+                    </div>
+
+
+                    <div>
+                        <label for="te_bombeiro" class="block text-sm font-bold text-gray-600">
+                            T/E (Bombeiro) <span class="text-red-700">*</span>
+                        </label>
+
+                        <select name="te_bombeiro" id="te_bombeiro" class=" mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            <option value="pago">Sim</option>
+                            <option value="nao pago">Não</option>
+                        </select>
+                    </div>
+
+
+                    <div>
+                        <label for="tp_bombeiro" class="block text-sm font-bold text-gray-600">
+                            T/P (Bombeiro) <span class="text-red-700">*</span>
+                        </label>
+
+                        <select name="tp_bombeiro" id="tp_bombeiro" class=" mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            <option value="pago">Sim</option>
+                            <option value="nao pago">Não</option>
+                        </select>
+                    </div>
+
+
+                    <div>
+                        <label for="arq_bombeiro" class="block text-sm font-bold text-gray-600">
+                            Arq. (Bombeiro) <span class="text-red-700">*</span>
+                        </label>
+
+                        <select name="arq_bombeiro" id="arq_bombeiro" class=" mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            <option value="pago">Sim</option>
+                            <option value="nao pago">Não</option>
+                        </select>
+                    </div>
+
+
+                    <div>
+                        <label for="ent_bombeiro" class="block text-sm font-bold text-gray-600">
+                            Ent. (Bombeiro) <span class="text-red-700">*</span>
+                        </label>
+
+                        <select name="ent_bombeiro" id="ent_bombeiro" class=" mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            <option value="pago">Sim</option>
+                            <option value="nao pago">Não</option>
+                        </select>
+                    </div>
+                    <!-- <div>
+                        <label for="te_prefeitura" class="block text-sm font-bold text-gray-600">
+                            T/E (Prefeitura) <span class="text-red-700">*</span>
+                        </label>
+
                         <label>Pago</label>
                         <input
                             name="te_prefeitura"
                             id="te_prefeitura"
-                            type="radio"
-                        >
-   
+                            type="radio">
+
                         <label>Não pago</label>
                         <input
                             name="te_prefeitura"
                             id="te_prefeitura"
-                            type="radio"
-                        >
+                            type="radio">
                     </div>
 
 
@@ -117,15 +223,13 @@
                         <input
                             name="te_bombeiro"
                             id="te_bombeiro"
-                            type="radio"
-                        >
+                            type="radio">
 
                         <label>Não pago</label>
                         <input
                             name="te_bombeiro"
                             id="te_bombeiro"
-                            type="radio"
-                        >
+                            type="radio">
                     </div>
 
                     <div>
@@ -137,15 +241,13 @@
                         <input
                             name="tp_prefeitura"
                             id="tp_prefeitura"
-                            type="radio"
-                        >
+                            type="radio">
 
                         <label>Não pago</label>
                         <input
                             name="tp_prefeitura"
                             id="tp_prefeitura"
-                            type="radio"
-                        >
+                            type="radio">
                     </div>
 
                     <div>
@@ -157,15 +259,13 @@
                         <input
                             name="tp_bombeiro"
                             id="tp_bombeiro"
-                            type="radio"
-                        >
+                            type="radio">
 
                         <label>Não Pago</label>
                         <input
                             name="tp_bombeiro"
                             id="tp_bombeiro"
-                            type="radio"
-                        >
+                            type="radio">
                     </div>
 
 
@@ -178,15 +278,13 @@
                         <input
                             name="arq_prefeitura"
                             id="arq_prefeitura"
-                            type="radio"
-                        >
+                            type="radio">
 
                         <label>Não Pago</label>
                         <input
                             name="arq_prefeitura"
                             id="arq_prefeitura"
-                            type="radio"
-                        >
+                            type="radio">
                     </div>
 
                     <div>
@@ -198,18 +296,16 @@
                         <input
                             name="arq_bombeiro"
                             id="arq_bombeiro"
-                            type="radio"
-                        >
+                            type="radio">
 
                         <label>Não pago</label>
                         <input
                             name="arq_bombeiro"
                             id="arq_bombeiro"
-                            type="radio"
-                        >
+                            type="radio">
                     </div>
 
-                    
+
                     <div>
                         <label for="ent_prefeitura" class="block text-sm font-bold text-gray-600">
                             Ent. (Prefeitura) <span class="text-red-700">*</span>
@@ -219,15 +315,13 @@
                         <input
                             name="ent_prefeitura"
                             id="ent_prefeitura"
-                            type="radio"
-                        >
+                            type="radio">
 
                         <label>Não pago</label>
                         <input
                             name="ent_prefeitura"
                             id="ent_prefeitura"
-                            type="radio"
-                        >
+                            type="radio">
                     </div>
 
                     <div>
@@ -239,24 +333,22 @@
                         <input
                             name="ent_bombeiro"
                             id="ent_bombeiro"
-                            type="radio"
-                        >
+                            type="radio">
 
                         <label>Não pago</label>
                         <input
                             name="ent_bombeiro"
                             id="ent_bombeiro"
-                            type="radio"
-                        >
+                            type="radio">
                     </div>
-                </div>
+                </div> -->
 
                 @if ($errors->any())
-                    <ul class="text-sm text-red-600 space-y-1">
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                <ul class="text-sm text-red-600 space-y-1">
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
                 @endif
 
                 <div class="mt-6 flex justify-end gap-4">

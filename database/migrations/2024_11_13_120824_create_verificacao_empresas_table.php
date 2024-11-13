@@ -18,16 +18,16 @@ return new class extends Migration
             $table->string('nome_fantasia');
             $table->string('inscricao_municipal')->unique();
             $table->string('area_total');
-            $table->date('data_validade');
+            $table->string('data_validade');
             $table->string('area_utilizada');
-            $table->boolean('te_prefeitura');
-            $table->boolean('tp_prefeitura');
-            $table->boolean('arq_prefeitura');
-            $table->boolean('ent_prefeitura');
-            $table->boolean('te_bombeiro');
-            $table->boolean('tp_bombeiro');
-            $table->boolean('arq_bombeiro');
-            $table->boolean('ent_bombeiro');
+            $table->string('te_prefeitura');
+            $table->string('tp_prefeitura');
+            $table->string('arq_prefeitura');
+            $table->string('ent_prefeitura');
+            $table->string('te_bombeiro');
+            $table->string('tp_bombeiro');
+            $table->string('arq_bombeiro');
+            $table->string('ent_bombeiro');
             $table->timestamps();
         });
     }
