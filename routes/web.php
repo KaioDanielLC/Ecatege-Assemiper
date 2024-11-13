@@ -29,6 +29,8 @@ Route::resource('empresa', EmpresaController::class)->withTrashed()->middleware(
 Route::resource('empresa_filial', EmpresaFilialController::class)->withTrashed()->middleware(['auth', 'verified']);
 Route::resource('verificacao_empresa', VerificacaoEmpresaController::class)->withTrashed()->middleware(['auth', 'verified']);
 
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

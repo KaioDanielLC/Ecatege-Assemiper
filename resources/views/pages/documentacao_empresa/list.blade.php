@@ -18,26 +18,41 @@
                     <th class="border border-white border-slate-600 w-16">T/P</th>
                     <th class="border border-white border-slate-600 w-16">Arq.</th>
                     <th class="border border-white border-slate-600 w-16">Ent.</th>
+                    <th class="border border-white border-slate-600 w-40 h-20">Ações</th>
                 </tr>
             </thead>
             <tbody>
                 @forelse ($verificacaoempresa as $verificacaoempresas)
                 <tr>
-                    <td class="border border-white border-slate-600 align-middle">{{$verificacaoempresas->ano}}</td>
-                    <td class="border border-white border-slate-600 align-middle">{{$verificacaoempresas->numero_pasta}}</td>
-                    <td class="border border-white border-slate-600 align-middle">{{$verificacaoempresas->nome_fantasia}}</td>
-                    <td class="border border-white border-slate-600 align-middle">{{$verificacaoempresas->inscricao_municipal}}</td>
-                    <td class="border border-white border-slate-600 align-middle">{{ \Carbon\Carbon::parse($verificacaoempresas->data_validade)->format('d/m/Y') }}</td>
-                    <td class="border border-white border-slate-600 align-middle">{{$verificacaoempresas->area_total}}</td>
-                    <td class="border border-white border-slate-600 align-middle">{{$verificacaoempresas->area_utilizada}}</td>
-                    <td class="border border-white border-slate-600 align-middle">{{$verificacaoempresas->te_prefeitura}}</td>
-                    <td class="border border-white border-slate-600 align-middle">{{$verificacaoempresas->tp_prefeitura}}</td>
-                    <td class="border border-white border-slate-600 align-middle">{{$verificacaoempresas->arq_prefeitura}}</td>
-                    <td class="border border-white border-slate-600 align-middle">{{$verificacaoempresas->ent_prefeitura}}</td>
-                    <td class="border border-white border-slate-600 align-middle">{{$verificacaoempresas->te_prefeitura}}</td>
-                    <td class="border border-white border-slate-600 align-middle">{{$verificacaoempresas->tp_prefeitura}}</td>
-                    <td class="border border-white border-slate-600 align-middle">{{$verificacaoempresas->arq_bombeiro}}</td>
-                    <td class="border border-white border-slate-600 align-middle">{{$verificacaoempresas->ent_bombeiro}}</td>
+                    <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->ano}}</td>
+                    <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->numero_pasta}}</td>
+                    <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->nome_fantasia}}</td>
+                    <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->inscricao_municipal}}</td>
+                    <td class="border border-white border-slate-600 align-middle text-center">{{ \Carbon\Carbon::parse($verificacaoempresas->data_validade)->format('d/m/Y') }}</td>
+                    <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->area_total}}</td>
+                    <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->area_utilizada}}</td>
+                    <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->te_prefeitura}}</td>
+                    <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->tp_prefeitura}}</td>
+                    <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->arq_prefeitura}}</td>
+                    <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->ent_prefeitura}}</td>
+                    <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->te_prefeitura}}</td>
+                    <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->tp_prefeitura}}</td>
+                    <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->arq_bombeiro}}</td>
+                    <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->ent_bombeiro}}</td>
+                    <td class="border border-white border-slate-600 align-middle text-center">
+
+                        <a href="{{ route('verificacao_empresa.edit', ['verificacao_empresa' => $verificacaoempresas->id]) }}" class="flex justify-center items-center">
+                            <button type="button" class="text-white bg-yellow-500 hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-yellow-300 transition duration-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center w-1/2">
+                                Editar
+                            </button>
+                        </a>
+                        
+                        <a href="{{ route('verificacao_empresa.destroy', [$verificacaoempresas->id]) }}" class="flex justify-center items-center">
+                            <button type="button" class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 transition duration-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center w-1/2">
+                                Excluir
+                            </button>
+                        </a>
+                    </td>
                 </tr>
                 @empty
                 <tr class="bg-white">
