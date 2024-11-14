@@ -8,17 +8,17 @@ use App\Models\VerificacaoEmpresa;
 
 class VerificacaoEmpresaController extends Controller
 {
-    public readonly VerificacaoEmpresa $verificacaoempresa;
+    public readonly VerificacaoEmpresa $verificacao_empresa;
 
     public function __construct()
     {
-        $this->verificacaoempresa = new VerificacaoEmpresa();
+        $this->verificacao_empresa = new VerificacaoEmpresa();
     }
 
     public function index()
     {
-        $verificacaoempresas = VerificacaoEmpresa::orderBy('nome_fantasia', 'asc')->get();
-        return view('pages.documentacao_empresa.list', ['verificacaoempresa' => $verificacaoempresas]);
+        $verificacao_empresas = VerificacaoEmpresa::orderBy('nome_fantasia', 'asc')->get();
+        return view('pages.documentacao_empresa.list', ['verificacaoempresa' => $verificacao_empresas]);
     }
 
     public function create()
@@ -35,7 +35,7 @@ class VerificacaoEmpresaController extends Controller
         
         ]);
     
-        $created = $this->verificacaoempresa->create([
+        $created = $this->verificacao_empresa->create([
             'ano' => $request->input('ano'),
             'nome_fantasia' => $request->input('nome_fantasia'),
             'numero_pasta' => $request->input('numero_pasta'),
@@ -58,50 +58,35 @@ class VerificacaoEmpresaController extends Controller
         }
     }
 
-    public function show(VerificacaoEmpresa $verificacaoempresa)
+    public function show(VerificacaoEmpresa $verificacao_empresa)
     {
-        $id = $verificacaoempresa->id;
-        $this->verificacaoempresa->where('id', $id)->delete();
+        $id = $verificacao_empresa->id;
+        $this->verificacao_empresa->where('id', $id)->delete();
         return redirect()->route('verificacao_empresa.index')->with('message', 'Empresa apagada com sucesso');
     }
 
-    public function edit(VerificacaoEmpresa $verificacaoempresa)
+    public function edit(VerificacaoEmpresa $verificacao_empresa)
     {
-        return view('pages.documentacao_empresa.edit', ['verificacaoempresa' => $verificacaoempresa]);
+        var_dump($verificacao_empresa->id);
+        return view('pages.documentacao_empresa.edit', ['verificacaoempresa' => $verificacao_empresa]);
     }
 
-    public function update(Request $request, VerificacaoEmpresa $verificacaoempresa)
+    public function update(Request $request, VerificacaoEmpresa $verificacao_empresa)
     {
     
-        $request->validate([
-            'inscricao_municipal' => 'required|unique:verificacao_empresas,inscricao_municipal,' . $verificacaoempresa->id,
-        ]);
+        $id = $verificacao_empresa->id;
+        $update = $this->verificacao_empresa->where('id', $id)->update($request->except(['_token', '_method']));
+        if ($update) {
+
+            return redirect()->route('verificacao_empresa.index')->with('message', 'Empresa atualizada com sucesso');
+        }
     
-        $verificacaoempresa->update([
-            'ano' => $request->input('ano'),
-            'nome_fantasia' => $request->input('nome_fantasia'),
-            'numero_pasta' => $request->input('numero_pasta'),
-            'area_total' => $request->input('area_total'),
-            'area_utilizada' => $request->input('area_utilizada'),
-            'inscricao_municipal' => $request->input('inscricao_municipal'),
-            'data_validade' => $request->input('data_validade'),
-            'te_prefeitura' => $request->input('te_prefeitura'),
-            'tp_prefeitura' => $request->input('tp_prefeitura'),
-            'arq_prefeitura' => $request->input('arq_prefeitura'),
-            'ent_prefeitura' => $request->input('ent_prefeitura'),
-            'te_bombeiro' => $request->input('te_bombeiro'),
-            'tp_bombeiro' => $request->input('tp_bombeiro'),
-            'arq_bombeiro' => $request->input('arq_bombeiro'),
-            'ent_bombeiro' => $request->input('ent_bombeiro'),
-        ]);
-    
-        return redirect()->route('verificacao_empresa.index')->with('message', 'Empresa atualizada com sucesso');
     }
 
-    public function destroy(VerificacaoEmpresa $verificacaoempresa)
+    public function destroy(VerificacaoEmpresa $verificacao_empresa)
     {
-        $id = $verificacaoempresa->id;
-        $this->verificacaoempresa->where('id', $id)->delete();
+        $id = $verificacao_empresa->id;
+        $this->verificacao_empresa->where('id', $id)->delete();
         return redirect()->route('verificacao_empresa.index')->with('message', 'Empresa apagada com sucesso');
     }
 

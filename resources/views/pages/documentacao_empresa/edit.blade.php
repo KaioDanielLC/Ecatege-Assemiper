@@ -3,9 +3,9 @@
     <div class="flex justify-center items-center min-h-screen ">
         <div class="max-w-4xl w-full bg-white shadow-lg rounded-lg p-6">
             <h2 class="text-2xl font-semibold text-gray-700 text-center mb-6">Editar Empresa/Parceiro</h2>
-            <form action="{{ route('verificacao_empresa.update', ['verificacao_empresa' => $verificacaoempresa->id]) }}" method="POST">
-                @csrf
+            <form action="{{ route('verificacao_empresa.update', ['verificacao_empresa' => $verificacaoempresa->id]) }}" method="post">
 
+                @csrf
                 <input type="hidden" name="_method" value="PUT">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>

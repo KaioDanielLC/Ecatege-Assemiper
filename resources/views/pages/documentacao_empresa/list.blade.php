@@ -22,7 +22,7 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse ($verificacaoempresa as $verificacaoempresas)
+                @foreach ($verificacaoempresa as $verificacaoempresas)
                 <tr>
                     <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->ano}}</td>
                     <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->numero_pasta}}</td>
@@ -54,11 +54,8 @@
                         </a>
                     </td>
                 </tr>
-                @empty
-                <tr class="bg-white">
-                    <td class="text-center text-danger" colspan="15">Não há nenhuma empresa cadastrada</td>
-                </tr>
-                @endforelse
+                
+                @endforeach
             </tbody>
         </table>
         
