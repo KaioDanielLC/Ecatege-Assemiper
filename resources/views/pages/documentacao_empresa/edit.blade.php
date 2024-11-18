@@ -1,6 +1,5 @@
 <x-app-layout>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <div class="flex justify-center items-center min-h-screen ">
+    <div class="flex justify-center items-center min-h-screen mt-10 ">
         <div class="max-w-4xl w-full bg-white shadow-lg rounded-lg p-6">
             <h2 class="text-2xl font-semibold text-gray-700 text-center mb-6">Editar Empresa/Parceiro</h2>
             <form action="{{ route('verificacao_empresa.update', ['verificacao_empresa' => $verificacaoempresa->id]) }}" method="post">
@@ -56,7 +55,7 @@
                         <label
                             for="inscricao_municipal"
                             class="block text-sm font-bold text-gray-600">
-                            Telefone
+                            Inscrição Municipal
                         </label>
                         <input
                             value="{{ $verificacaoempresa->inscricao_municipal }}"
@@ -89,9 +88,6 @@
                     <div>
                         <label for="area_utilizada" class="block text-sm font-bold text-gray-600">
                             Área Utilizada
-                            <span class="text-red-700">
-                                *
-                            </span>
                         </label>
                         <input
                             value="{{$verificacaoempresa->area_utilizada}}"
@@ -105,121 +101,62 @@
                     </div>
 
                     <div>
-                        <label
-                            for="te_prefeitura"
-                            class="block text-sm font-bold text-gray-600">
-                            T/E (Prefeitura)
-                        </label>
-                        <input
-                            value="{{ $verificacaoempresa->te_prefeitura }}"
-                            name="te_prefeitura"
-                            id="te_prefeitura"
-                            required
-                            type="text"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <label for="te_prefeitura" class="block text-sm font-bold text-gray-600">T/E (Prefeitura)</label>
+                        <select name="te_prefeitura" id="te_prefeitura" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            <option value="✔️" {{ $verificacaoempresa->te_prefeitura == '✔️' ? 'selected' : '' }}>✔️</option>
+                            <option value="❌" {{ $verificacaoempresa->te_prefeitura == '❌' ? 'selected' : '' }}>❌</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="tp_prefeitura" class="block text-sm font-bold text-gray-600">T/P (Prefeitura)</label>
+                        <select name="tp_prefeitura" id="tp_prefeitura" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            <option value="✔️" {{ $verificacaoempresa->tp_prefeitura == '✔️' ? 'selected' : '' }}>✔️</option>
+                            <option value="❌" {{ $verificacaoempresa->tp_prefeitura == '❌' ? 'selected' : '' }}>❌</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="ent_prefeitura" class="block text-sm font-bold text-gray-600">Ent. (Prefeitura)</label>
+                        <select name="ent_prefeitura" id="ent_prefeitura" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            <option value="✔️" {{ $verificacaoempresa->ent_prefeitura == '✔️' ? 'selected' : '' }}>✔️</option>
+                            <option value="❌" {{ $verificacaoempresa->ent_prefeitura == '❌' ? 'selected' : '' }}>❌</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="arq_prefeitura" class="block text-sm font-bold text-gray-600">Arq. (Prefeitura)</label>
+                        <select name="arq_prefeitura" id="arq_prefeitura" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            <option value="✔️" {{ $verificacaoempresa->arq_prefeitura == '✔️' ? 'selected' : '' }}>✔️</option>
+                            <option value="❌" {{ $verificacaoempresa->arq_prefeitura == '❌' ? 'selected' : '' }}>❌</option>
+                        </select>
                     </div>
 
+                    <!-- Seção para T/E, T/P, Ent e Arq (Bombeiro) -->
                     <div>
-                        <label
-                            for="tp_prefeitura"
-                            class="block text-sm font-bold text-gray-600">
-                            T/P (Prefeitura)
-                        </label>
-                        <input
-                            value="{{ $verificacaoempresa->tp_prefeitura }}"
-                            name="tp_prefeitura"
-                            id="tp_prefeitura"
-                            required
-                            type="text"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <label for="te_bombeiro" class="block text-sm font-bold text-gray-600">T/E (Bombeiro)</label>
+                        <select name="te_bombeiro" id="te_bombeiro" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            <option value="✔️" {{ $verificacaoempresa->te_bombeiro == '✔️' ? 'selected' : '' }}>✔️</option>
+                            <option value="❌" {{ $verificacaoempresa->te_bombeiro == '❌' ? 'selected' : '' }}>❌</option>
+                        </select>
                     </div>
                     <div>
-                        <label
-                            for="arq_prefeitura"
-                            class="block text-sm font-bold text-gray-600">
-                            Arq. (Prefeitura)
-                        </label>
-                        <input
-                            value="{{ $verificacaoempresa->arq_prefeitura }}"
-                            name="arq_prefeitura"
-                            id="arq_prefeitura"
-                            required
-                            type="text"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                    </div>
-
-                    <div>
-                        <label
-                            for="ent_prefeitura"
-                            class="block text-sm font-bold text-gray-600">
-                            Ent. (Prefeitura)
-                        </label>
-                        <input
-                            value="{{ $verificacaoempresa->ent_prefeitura }}"
-                            name="ent_prefeitura"
-                            id="ent_prefeitura"
-                            required
-                            type="text"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                    </div>
-
-                    <div>
-                        <label
-                            for="te_bombeiro"
-                            class="block text-sm font-bold text-gray-600">
-                            T/E (Bombeiro)
-                        </label>
-                        <input
-                            value="{{ $verificacaoempresa->te_bombeiro }}"
-                            name="te_bombeiro"
-                            id="te_bombeiro"
-                            required
-                            type="text"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                    </div>
-
-                    <div>
-                        <label
-                            for="tp_bombeiro"
-                            class="block text-sm font-bold text-gray-600">
-                            T/P (Bombeiro)
-                        </label>
-                        <input
-                            value="{{ $verificacaoempresa->tp_bombeiro }}"
-                            name="tp_bombeiro"
-                            id="v"
-                            required
-                            type="text"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <label for="tp_bombeiro" class="block text-sm font-bold text-gray-600">T/P (Bombeiro)</label>
+                        <select name="tp_bombeiro" id="tp_bombeiro" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            <option value="✔️" {{ $verificacaoempresa->tp_bombeiro == '✔️' ? 'selected' : '' }}>✔️</option>
+                            <option value="❌" {{ $verificacaoempresa->tp_bombeiro == '❌' ? 'selected' : '' }}>❌</option>
+                        </select>
                     </div>
                     <div>
-                        <label
-                            for="arq_bombeiro"
-                            class="block text-sm font-bold text-gray-600">
-                            Arq. (Bombeiro)
-                        </label>
-                        <input
-                            value="{{ $verificacaoempresa->arq_bombeiro }}"
-                            name="arq_bombeiro"
-                            id="arq_bombeiro"
-                            required
-                            type="text"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <label for="ent_bombeiro" class="block text-sm font-bold text-gray-600">Ent. (Bombeiro)</label>
+                        <select name="ent_bombeiro" id="ent_bombeiro" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            <option value="✔️" {{ $verificacaoempresa->ent_bombeiro == '✔️' ? 'selected' : '' }}>✔️</option>
+                            <option value="❌" {{ $verificacaoempresa->ent_bombeiro == '❌' ? 'selected' : '' }}>❌</option>
+                        </select>
                     </div>
-
                     <div>
-                        <label
-                            for="ent_prefeitura"
-                            class="block text-sm font-bold text-gray-600">
-                            Ent.(Prefeitura)
-                        </label>
-                        <input
-                            value="{{ $verificacaoempresa->ent_prefeitura }}"
-                            name="ent_prefeitura"
-                            id="ent_prefeitura"
-                            required
-                            type="text"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <label for="arq_bombeiro" class="block text-sm font-bold text-gray-600">Arq. (Bombeiro)</label>
+                        <select name="arq_bombeiro" id="arq_bombeiro" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            <option value="✔️" {{ $verificacaoempresa->arq_bombeiro == '✔️' ? 'selected' : '' }}>✔️</option>
+                            <option value="❌" {{ $verificacaoempresa->arq_bombeiro == '❌' ? 'selected' : '' }}>❌</option>
+                        </select>
                     </div>
                 </div>
                 <div class="mt-6 flex justify-end gap-4">

@@ -67,7 +67,6 @@ class VerificacaoEmpresaController extends Controller
 
     public function edit(VerificacaoEmpresa $verificacao_empresa)
     {
-        var_dump($verificacao_empresa->id);
         return view('pages.documentacao_empresa.edit', ['verificacaoempresa' => $verificacao_empresa]);
     }
 
