@@ -50,7 +50,7 @@
                     <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->numero_pasta}}</td>
                     <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->nome_fantasia}}</td>
                     <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->inscricao_municipal}}</td>
-                    <td class="border border-white border-slate-600 align-middle text-center">{{ \Carbon\Carbon::parse($verificacaoempresas->data_validade)->format('d/m/Y') }}</td>
+                    <td class="border border-white border-slate-600 align-middle text-center">{{\Carbon\Carbon::parse($verificacaoempresas->data_validade)->format('d/m/Y') }}</td>
                     <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->area_total}}m²</td>
                     <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->area_utilizada}}m²</td>
                     <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->te_prefeitura}}</td>
@@ -91,7 +91,7 @@
                 @endforeach
             </tbody>
         </table>
-        
+
     </div>
     <div class="me-36 text-end absolute">
         <a href="{{ route('verificacao_empresa.create') }}">

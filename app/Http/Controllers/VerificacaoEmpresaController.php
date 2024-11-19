@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\VerificacaoEmpresa;
+use Carbon\Carbon;
 
 class VerificacaoEmpresaController extends Controller
 {
@@ -88,7 +89,4 @@ class VerificacaoEmpresaController extends Controller
         $this->verificacao_empresa->where('id', $id)->delete();
         return redirect()->route('verificacao_empresa.index')->with('message', 'Empresa apagada com sucesso');
     }
-
-
-    
 }

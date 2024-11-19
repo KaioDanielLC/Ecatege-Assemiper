@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
+
 
 class VerificacaoEmpresa extends Model
 {
@@ -27,5 +29,10 @@ class VerificacaoEmpresa extends Model
         'tp_bombeiro',
         'arq_bombeiro',
         'ent_bombeiro',
+    ];
+    protected $dates = ['data_validade'];
+
+    protected $casts = [
+        'data_validade' => 'date',
     ];
 }
