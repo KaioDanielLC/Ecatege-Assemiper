@@ -52,6 +52,14 @@ class VerificacaoEmpresaController extends Controller
             'tp_bombeiro' => $request->input('tp_bombeiro'),
             'arq_bombeiro' => $request->input('arq_bombeiro'),
             'ent_bombeiro' => $request->input('ent_bombeiro'),
+            'te_vigilancia' => $request->input('te_vigilancia'),
+            'tp_vigilancia' => $request->input('tp_vigilancia'),
+            'arq_vigilancia' => $request->input('arq_vigilancia'),
+            'ent_vigilancia' => $request->input('ent_vigilancia'),
+            'te_funcionamento' => $request->input('te_funcionamento'),
+            'tp_funcionamento' => $request->input('tp_funcionamento'),
+            'arq_funcionamento' => $request->input('arq_funcionamento'),
+            'ent_funcionamento' => $request->input('ent_funcionamento'),
         ]); 
     
         if ($created) {

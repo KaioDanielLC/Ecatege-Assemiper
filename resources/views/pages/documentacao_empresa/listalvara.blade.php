@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="rounded-lg p-6 mb-6">
         @if ($verificacaoempresa->isEmpty())
-            <p class="text-center text-gray-600">Nenhuma empresa com alvará próximo de vencer.</p>
+            <p class="text-center text-white">Nenhuma empresa com alvará próximo de vencer.</p>
         @else
             <div class="overflow-x-auto flex justify-start mt-8">
                 <table class="table-fixed border-collapse border border-gray-300 rounded-lg">

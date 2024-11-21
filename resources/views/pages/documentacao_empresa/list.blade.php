@@ -22,7 +22,10 @@
                     <th colspan="7" class="border border-white border-slate-600 text-center py-2">Informações</th>
                     <th colspan="4" class="border border-white border-slate-600 text-center py-2">Prefeitura</th>
                     <th colspan="4" class="border border-white border-slate-600 text-center py-2">Bombeiro</th>
-                    <th colspan="1" class="border border-white border-slate-600 text-center py-2"></th>
+                    <th colspan="4" class="border border-white border-slate-600 text-center py-2">Vigilância</th>
+                    <th colspan="4" class="border border-white border-slate-600 text-center py-2">Funcionamento</th>
+
+
                 </tr>
                 <tr class="p-2">
                     <th class="border border-white border-slate-600 w-16">Ano</th>
@@ -40,7 +43,11 @@
                     <th class="border border-white border-slate-600 w-16">T/P</th>
                     <th class="border border-white border-slate-600 w-16">Arq.</th>
                     <th class="border border-white border-slate-600 w-16">Ent.</th>
-                    <th class="border border-white border-slate-600 w-52 h-20">Ações</th>
+                    <th class="border border-white border-slate-600 w-16">T/E</th>
+                    <th class="border border-white border-slate-600 w-16">T/P</th>
+                    <th class="border border-white border-slate-600 w-16">Arq.</th>
+                    <th class="border border-white border-slate-600 w-16">Ent.</th>
+        
                 </tr>
             </thead>
             <tbody>
@@ -61,6 +68,14 @@
                     <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->tp_bombeiro}}</td>
                     <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->arq_bombeiro}}</td>
                     <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->ent_bombeiro}}</td>
+                    <td ></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td class="border border-white border-slate-600 align-middle text-center">
                         <div class="flex align-items-center space-x-2">
                             <a href="{{ route('verificacao_empresa.edit', ['verificacao_empresa' => $verificacaoempresas->id]) }}" class="flex justify-center items-center">

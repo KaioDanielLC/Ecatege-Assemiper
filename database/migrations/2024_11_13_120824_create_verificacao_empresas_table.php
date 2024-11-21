@@ -28,6 +28,14 @@ return new class extends Migration
             $table->string('tp_bombeiro');
             $table->string('arq_bombeiro');
             $table->string('ent_bombeiro');
+            $table->string('te_vigilancia');
+            $table->string('tp_vigilancia');
+            $table->string('arq_vigilancia');
+            $table->string('ent_vigilancia');
+            $table->string('te_funcionamento');
+            $table->string('tp_funcionamento');
+            $table->string('arq_funcionamento');
+            $table->string('ent_funcionamento');
             $table->timestamps();
         });
     }

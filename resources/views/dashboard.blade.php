@@ -26,8 +26,7 @@
     </div>
 
     <div class="flex justify-evenly mt-16">
-
-        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow text-justify">
+        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow text-justify ">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Documentação das Empresas</h5>
             <p class="mb-3 font-normal text-gray-700">Empresas monitoradas: {{$count_verificacao}}</p>
 

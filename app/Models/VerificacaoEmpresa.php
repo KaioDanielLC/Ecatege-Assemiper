@@ -29,6 +29,14 @@ class VerificacaoEmpresa extends Model
         'tp_bombeiro',
         'arq_bombeiro',
         'ent_bombeiro',
+        'te_vigilancia',
+        'tp_vigilancia',
+        'arq_vigilancia',
+        'ent_vigilancia',
+        'te_funcionamento',
+        'tp_funcionamento',
+        'arq_funcionamento',
+        'ent_funcionamento',
     ];
     protected $dates = ['data_validade'];
 
