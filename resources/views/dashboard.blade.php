@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="flex justify-evenly mt-10">
-        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow text-justify">
+        <div class="w-96 p-6 bg-white border border-gray-200 rounded-lg shadow text-justify">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Empresas Matriz cadastradas</h5>
             <p class="mb-3 font-normal text-gray-700">Número de empresas cadastradas: {{$count}}</p>
 
@@ -12,7 +12,7 @@
             </a>
         </div>
 
-        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow text-justify">
+        <div class="w-96 p-6 bg-white border border-gray-200 rounded-lg shadow text-justify">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Empresas Filiais cadastradas</h5>
             <p class="mb-3 font-normal text-gray-700">Número de filiais cadastradas: {{$count_filial}}</p>
 
@@ -26,8 +26,8 @@
     </div>
 
     <div class="flex justify-evenly mt-16">
-        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow text-justify ">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Documentação das Empresas</h5>
+        <div class="w-96 p-6 bg-white border border-gray-200 rounded-lg shadow text-justify ">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Controle Operacional</h5>
             <p class="mb-3 font-normal text-gray-700">Empresas monitoradas: {{$count_verificacao}}</p>
 
             <a href="{{ route('verificacao_empresa.index') }}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gradient-to-r from-[#2C6B5B] via-[#4A8F73] to-[#6DAE8F] hover:from-[#4A8F73] hover:to-[#6DAE8F] focus:ring-4 focus:outline-none focus:ring-green-700 rounded-lg">
@@ -38,8 +38,10 @@
             </a>            
         </div>
 
-        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow text-justify">
+        <div class="w-96 p-6 bg-white border border-gray-200 rounded-lg shadow text-justify">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Alvará das Empresas</h5>
+            <p class="mb-3 font-normal text-gray-700">Quantidade de Alvarás perto de vencer: {{$count_alvara}}</p>
+
 
             <a href="{{ route('painel.index') }}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gradient-to-r from-[#2C6B5B] via-[#4A8F73] to-[#6DAE8F] hover:from-[#4A8F73] hover:to-[#6DAE8F] focus:ring-4 focus:outline-none focus:ring-green-700 rounded-lg">
                 Ver mais
@@ -50,3 +52,5 @@
         </div>
     </div>
 </x-app-layout>
+
+    
