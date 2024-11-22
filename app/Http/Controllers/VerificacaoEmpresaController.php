@@ -18,7 +18,20 @@ class VerificacaoEmpresaController extends Controller
 
     public function index()
     {
-        $verificacao_empresas = VerificacaoEmpresa::orderBy('nome_fantasia', 'asc')->get();
+        
+
+        $search = request('search');
+    
+        if ($search) {
+            $verificacao_empresas = $this->verificacao_empresa
+                ->where('nome_fantasia', 'like', '%' . $search . '%')
+                ->orWhere('numero_pasta', 'like', '%' . $search . '%')
+                ->orWhere('inscricao_municipal', 'like', '%' . $search . '%')
+                ->get();
+        } else {
+            $verificacao_empresas = VerificacaoEmpresa::orderBy('nome_fantasia', 'asc')->get();
+        }
+        
         return view('pages.documentacao_empresa.list', ['verificacaoempresa' => $verificacao_empresas]);
     }
 

@@ -62,7 +62,15 @@
                             minlength="6"
                             required
                             type="text"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                            >
+                            @if ($errors->any())
+                            <ul class="text-sm text-red-600 space-y-1 text end">
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                            @endif
                     </div>
 
                     <div>
@@ -279,14 +287,6 @@
                         </select>
                     </div>
 
-
-                    @if ($errors->any())
-                    <ul class="text-sm text-red-600 space-y-1">
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                    @endif
 
                     <div class="mt-6 flex justify-end gap-4 col-span-4">
                         <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-bold text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
