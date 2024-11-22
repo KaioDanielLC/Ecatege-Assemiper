@@ -7,7 +7,7 @@
                 @csrf
                 <div class="grid grid-cols-3 md:grid-cols-4 gap-4">
                 <div class="col-span-4">
-                        <h3 class="text-lg font-bold text-gray-800 ">informações principais</h3>
+                        <h3 class="text-lg font-bold text-gray-800 ">Informações Principais</h3>
                     </div>
                     <div>
                         <label for="ano" class="block text-sm font-bold text-gray-600">

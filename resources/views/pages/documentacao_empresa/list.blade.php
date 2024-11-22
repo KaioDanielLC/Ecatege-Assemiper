@@ -15,8 +15,9 @@
             </button>
         </div>
     @endif
+    
     <div class="flex justify-center p-4 text-white mt-10">
-        <table class="table-fixed border-collapse border border-slate-500 border-separate border-spacing-0">
+        <table class="overflow-x-auto table-fixed border-collapse border border-slate-500 border-separate border-spacing-0">
             <thead class="bg-[#2C6B5B]">
                 <tr>
                     <th colspan="7" class="border border-white border-slate-600 text-center py-2">Informações</th>
@@ -25,8 +26,6 @@
                     <th colspan="4" class="border border-white border-slate-600 text-center py-2">Vigilância</th>
                     <th colspan="4" class="border border-white border-slate-600 text-center py-2">Funcionamento</th>
                     <th colspan="1" class="border border-white border-slate-600 text-center py-2"></th>
-
-
                 </tr>
                 <tr class="p-2">
                     <th class="border border-white border-slate-600 w-16">Ano</th>
@@ -57,7 +56,7 @@
         
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="font-semibold">
                 @foreach ($verificacaoempresa as $verificacaoempresas)
                 <tr>
                     <td class="border border-white border-slate-600 align-middle text-center">{{$verificacaoempresas->ano}}</td>

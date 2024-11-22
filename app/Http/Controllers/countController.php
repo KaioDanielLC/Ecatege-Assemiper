@@ -31,11 +31,15 @@ class countController extends Controller
       $count_filial = $this->empresa_filial->count();
       $count_verificacao =$this->verificacao_empresa->count();
 
-      $hoje = Carbon::now();
-      $dataLimite = $hoje->addDays(30);
+      $hoje = Carbon::today();
+      $dataLimite = $hoje->copy()->addDays(30); 
 
-      $count_alvara = VerificacaoEmpresa::where('data_validade', '<=', $dataLimite)->where('data_validade', '>=', $hoje)->count();
+      $count_alvara = VerificacaoEmpresa::whereNotNull('data_validade')
+        ->where('data_validade', '<=', $dataLimite)
+        ->where('data_validade', '>=', $hoje)
+        ->count();
       
+
       return view('dashboard', ['count' => $count, 'count_filial' => $count_filial, 'count_verificacao' => $count_verificacao ,'count_alvara' => $count_alvara]);
     }
 }
