@@ -36,6 +36,7 @@ return new class extends Migration
             $table->string('tp_funcionamento');
             $table->string('arq_funcionamento');
             $table->string('ent_funcionamento');
+            $table->string('pdf')->nullable();
             $table->timestamps();
         });
     }

@@ -39,7 +39,7 @@
         <table class="overflow-x-auto table-fixed border-collapse border border-b-black border-r-black border-spacing-0">
             <thead class="bg-[#2C6B5B]">
                 <tr>
-                    <th colspan="7" class="border-2 border-white text-center py-2">Informações</th>
+                    <th colspan="8" class="border-2 border-white text-center py-2">Informações</th>
                     <th colspan="4" class="border-2 border-white text-center py-2">Prefeitura</th>
                     <th colspan="4" class="border-2 border-white text-center py-2">Bombeiro</th>
                     <th colspan="4" class="border-2 border-white text-center py-2">Vigilância</th>
@@ -52,6 +52,7 @@
                     <th class="border-2 border-white border-b-black w-24">Nome da Empresa</th>
                     <th class="border-2 border-white border-b-black w-24">Inscrição Municipal</th>
                     <th class="border-2 border-white border-b-black w-40">Data de Validade</th>
+                    <th class="border-2 border-white border-b-black w-16">Alvará</th>
                     <th class="border-2 border-white border-b-black w-28">Área Total</th>
                     <th class="border-2 border-white border-b-black w-28">Área Utilizada</th>
                     <th class="border-2 border-white border-b-black w-16">T/E</th>
@@ -83,6 +84,9 @@
                     <td class="border-2 border-black align-middle text-center">{{$verificacaoempresas->nome_fantasia}}</td>
                     <td class="border-2 border-black align-middle text-center">{{$verificacaoempresas->inscricao_municipal}}</td>
                     <td class="border-2 border-black align-middle text-center">{{\Carbon\Carbon::parse($verificacaoempresas->data_validade)->format('d/m/Y') }}</td>
+                    <td class="border-2 border-black align-middle text-center">
+                        <a target="_blank" href="{{ asset('img/pdf/' . $verificacaoempresas->pdf) }}" class="hover:underline" >PDF</a>
+                    </td>  
                     <td class="border-2 border-black align-middle text-center">{{$verificacaoempresas->area_total}}m²</td>
                     <td class="border-2 border-black align-middle text-center">{{$verificacaoempresas->area_utilizada}}m²</td>
                     <td class="border-2 border-black align-middle text-center">{{$verificacaoempresas->te_prefeitura}}</td>
@@ -100,22 +104,33 @@
                     <td class="border-2 border-black align-middle text-center">{{$verificacaoempresas->te_funcionamento}}</td>
                     <td class="border-2 border-black align-middle text-center">{{$verificacaoempresas->tp_funcionamento}}</td>
                     <td class="border-2 border-black align-middle text-center">{{$verificacaoempresas->arq_funcionamento}}</td>
-                    <td class="border-2 border-black align-middle text-center">{{$verificacaoempresas->ent_funcionamento}}</td>
+                    <td class="border-2 border-black align-middle text-center">{{$verificacaoempresas->ent_funcionamento}}</td>                  
                     <td class="border-2 border-black align-middle text-center">
                         <div class="flex align-items-center">
                             <a href="{{ route('verificacao_empresa.edit', ['verificacao_empresa' => $verificacaoempresas->id]) }}" class="flex justify-center items-center">
-                                <button type="button" class="text-white bg-yellow-500 hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-yellow-300 transition duration-300 rounded-lg text-sm px-5 py-2.5 text-centerborder-b-blackw-20 mr-2">
+                                <button type="button" class="text-white bg-yellow-500 hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-yellow-300 transition duration-300 rounded-lg text-sm px-5 py-2.5 text-center  w-20 mr-2 mt-1 mb-1">
                                     Editar
                                 </button>
                             </a>
                             <a href="{{ route('verificacao_empresa.destroy', [$verificacaoempresas->id]) }}" class="flex justify-center items-center delete-link" data-company-name="{{ $verificacaoempresas->nome_fantasia }}">
-                                <button type="button" class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 transition duration-300 rounded-lg text-sm px-5 py-2.5 text-centerborder-b-blackw-20">
+                                <button type="button" class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 transition duration-300 rounded-lg text-sm px-5 py-2.5 text-center w-20 mt-1 mb-1">
                                     Excluir
                                 </button>
                             </a>
                         </div>
                     </td>
                 </tr>
+
+            
+                <div id="confirmModal" class="fixed inset-0 z-50 hidden bg-gray-900 bg-opacity-50 flex items-center justify-center">
+                    <div class="bg-white p-6 rounded-lg shadow-lg w-85">
+                        <p class="mb-4 text-gray-700">Tem certeza que deseja excluir a empresa <span id="companyName" class="font-semibold"></span>?</p>
+                        <div style="text-align: center;" class="flex justify-center space-x-4">
+                            <button id="cancelBtn" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Cancelar</button>
+                            <a id="confirmDeleteBtn" href="#" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700">Excluir</a>
+                        </div>
+                    </div>
+                </div>
                 @endforeach
             </tbody>
             
@@ -135,7 +150,7 @@
     </div>
 
 
-    <script>
+<script>
         document.addEventListener('DOMContentLoaded', function() {
         const confirmModal = document.getElementById('confirmModal');
         const cancelBtn = document.getElementById('cancelBtn');
@@ -158,8 +173,8 @@
         });
 
         confirmDeleteBtn.addEventListener('click', function() {
-           border-b-blackwindow.location.href = deleteUrl; // Redireciona para a URL de exclusão
+            window.location.href = deleteUrl; // Redireciona para a URL de exclusão
         });
         });
-</script>  
+</script>
 </x-app-layout>

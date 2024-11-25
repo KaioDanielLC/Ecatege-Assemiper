@@ -3,7 +3,7 @@
         <div class="max-w-full w-11/12 bg-white shadow-md rounded-lg p-6">
             <h2 class="text-2xl font-semibold text-gray-700 text-center mb-6">Cadastrar Empresa/Parceiro</h2>
 
-            <form action="{{ route('verificacao_empresa.store') }}" method="POST">
+            <form action="{{ route('verificacao_empresa.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="grid grid-cols-3 md:grid-cols-4 gap-4">
                 <div class="col-span-4">
@@ -97,6 +97,17 @@
                             required
                             type="text"
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                    </div>
+
+                    <div>
+                        <label for="pdf" class="block text-sm font-bold text-gray-600">Alvará</label>
+                        <input 
+                            name="pdf" 
+                            id="pdf" 
+                            required 
+                            type="file"
+                            accept=".pdf"
+                            class="mt-2 block w-full text-sm text-gray-900 border border-gray-300 rounded-md cursor-pointer bg-gray-50 dark:text-gray-400 focus:ring-indigo-500 dark:border-gray-600">
                     </div>
 
                     <div>
@@ -300,4 +311,17 @@
             </form>
         </div>
     </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const fileInput = document.getElementById('pdf');
+        const fileNameDisplay = document.getElementById('file-name');
+
+        fileInput.addEventListener('change', function () {
+            // Atualiza o texto com o nome do arquivo selecionado
+            const fileName = fileInput.files[0]?.name || "Nenhum arquivo selecionado";
+            fileNameDisplay.textContent = `Arquivo selecionado: ${fileName}`;
+        });
+    });
+</script>
 </x-app-layout>

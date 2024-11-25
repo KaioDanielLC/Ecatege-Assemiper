@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon;
+
 
 
 class VerificacaoEmpresa extends Model
@@ -37,6 +37,8 @@ class VerificacaoEmpresa extends Model
         'tp_funcionamento',
         'arq_funcionamento',
         'ent_funcionamento',
+        'pdf'
+
     ];
     protected $dates = ['data_validade'];
 

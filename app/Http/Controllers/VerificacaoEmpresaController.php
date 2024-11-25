@@ -45,9 +45,24 @@ class VerificacaoEmpresaController extends Controller
 
         $request->validate([
             'inscricao_municipal' => 'required|unique:verificacao_empresas',
-        ],['inscricao_municipal.unique' => 'Essa inscrição já está sendo usada',
+            'pdf'=>'nullable|file|mimes:pdf|max:2048']
+            ,
+            ['inscricao_municipal.unique' => 'Essa inscrição já está sendo usada',
         
         ]);
+
+        $pdfName = null;
+
+        if ($request->hasFile('pdf') && $request->file('pdf')->isValid()){
+            $requestPdf = $request->file('pdf');
+            $extension = $requestPdf->extension();
+    
+            // Criar um nome único para o arquivo
+            $pdfName = md5($requestPdf->getClientOriginalName() . strtotime("now")) . "." . $extension;
+    
+            // Mover o arquivo para a pasta desejada
+            $requestPdf->move(public_path('img/pdf'), $pdfName);
+        }
     
         $created = $this->verificacao_empresa->create([
             'ano' => $request->input('ano'),
@@ -73,6 +88,8 @@ class VerificacaoEmpresaController extends Controller
             'tp_funcionamento' => $request->input('tp_funcionamento'),
             'arq_funcionamento' => $request->input('arq_funcionamento'),
             'ent_funcionamento' => $request->input('ent_funcionamento'),
+            'ent_funcionamento' => $request->input('ent_funcionamento'),
+            'pdf' =>$pdfName
         ]); 
     
         if ($created) {
