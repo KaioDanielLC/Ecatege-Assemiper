@@ -23,7 +23,7 @@
                     <x-nav-link :href="route('verificacao_empresa.index')" :active="request()->routeIs('verificacao_empresa.index')" class="text-white">
                         {{ __('Controle Operacional') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('painel.index')" :active="request()->routeIs('painel.index')" class="text-white">
+                    <x-nav-link :href="route('alvara.index')" :active="request()->routeIs('alvara.index')" class="text-white">
                         {{ __('Alvará') }}
                     </x-nav-link>
                 </div>

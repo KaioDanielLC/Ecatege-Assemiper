@@ -36,7 +36,10 @@ return new class extends Migration
             $table->string('tp_funcionamento');
             $table->string('arq_funcionamento');
             $table->string('ent_funcionamento');
-            $table->string('pdf')->nullable();
+            $table->string('pdf_vigilancia')->nullable();
+            $table->string('pdf_ambiental')->nullable();
+            $table->string('pdf_sanitario')->nullable();
+            $table->string('pdf_bombeiro')->nullable();
             $table->timestamps();
         });
     }

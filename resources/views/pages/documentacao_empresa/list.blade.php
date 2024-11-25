@@ -39,7 +39,7 @@
         <table class="overflow-x-auto table-fixed border-collapse border border-b-black border-r-black border-spacing-0">
             <thead class="bg-[#2C6B5B]">
                 <tr>
-                    <th colspan="8" class="border-2 border-white text-center py-2">Informações</th>
+                    <th colspan="7" class="border-2 border-white text-center py-2">Informações</th>
                     <th colspan="4" class="border-2 border-white text-center py-2">Prefeitura</th>
                     <th colspan="4" class="border-2 border-white text-center py-2">Bombeiro</th>
                     <th colspan="4" class="border-2 border-white text-center py-2">Vigilância</th>
@@ -51,10 +51,9 @@
                     <th class="border-2 border-white border-b-black w-16">Nº da Pasta</th>
                     <th class="border-2 border-white border-b-black w-24">Nome da Empresa</th>
                     <th class="border-2 border-white border-b-black w-24">Inscrição Municipal</th>
-                    <th class="border-2 border-white border-b-black w-40">Data de Validade</th>
-                    <th class="border-2 border-white border-b-black w-16">Alvará</th>
-                    <th class="border-2 border-white border-b-black w-28">Área Total</th>
-                    <th class="border-2 border-white border-b-black w-28">Área Utilizada</th>
+                    <th class="border-2 border-white border-b-black w-28">Data de Validade</th>
+                    <th class="border-2 border-white border-b-black w-24">Área Total</th>
+                    <th class="border-2 border-white border-b-black w-24">Área Utilizada</th>
                     <th class="border-2 border-white border-b-black w-16">T/E</th>
                     <th class="border-2 border-white border-b-black w-16">T/P</th>
                     <th class="border-2 border-white border-b-black w-16">Arq.</th>
@@ -84,9 +83,6 @@
                     <td class="border-2 border-black align-middle text-center">{{$verificacaoempresas->nome_fantasia}}</td>
                     <td class="border-2 border-black align-middle text-center">{{$verificacaoempresas->inscricao_municipal}}</td>
                     <td class="border-2 border-black align-middle text-center">{{\Carbon\Carbon::parse($verificacaoempresas->data_validade)->format('d/m/Y') }}</td>
-                    <td class="border-2 border-black align-middle text-center">
-                        <a target="_blank" href="{{ asset('img/pdf/' . $verificacaoempresas->pdf) }}" class="hover:underline" >PDF</a>
-                    </td>  
                     <td class="border-2 border-black align-middle text-center">{{$verificacaoempresas->area_total}}m²</td>
                     <td class="border-2 border-black align-middle text-center">{{$verificacaoempresas->area_utilizada}}m²</td>
                     <td class="border-2 border-black align-middle text-center">{{$verificacaoempresas->te_prefeitura}}</td>

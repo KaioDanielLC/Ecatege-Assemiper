@@ -7,7 +7,7 @@
                 @csrf
                 <div class="grid grid-cols-3 md:grid-cols-4 gap-4">
                 <div class="col-span-4">
-                        <h3 class="text-lg font-bold text-gray-800 ">Informações Principais</h3>
+                        <h3 class="text-lg font-semibold text-gray-800  pb-1 ">Informações Principais</h3>
                     </div>
                     <div>
                         <label for="ano" class="block text-sm font-bold text-gray-600">
@@ -100,17 +100,6 @@
                     </div>
 
                     <div>
-                        <label for="pdf" class="block text-sm font-bold text-gray-600">Alvará</label>
-                        <input 
-                            name="pdf" 
-                            id="pdf" 
-                            required 
-                            type="file"
-                            accept=".pdf"
-                            class="mt-2 block w-full text-sm text-gray-900 border border-gray-300 rounded-md cursor-pointer bg-gray-50 dark:text-gray-400 focus:ring-indigo-500 dark:border-gray-600">
-                    </div>
-
-                    <div>
                         <div>
                             <label for="data_validade" class="block text-sm font-bold text-gray-600">
                                 Data de Validade <span class="text-red-700">*</span>
@@ -129,7 +118,7 @@
                     <!-- Prefeitura -->
 
                     <div class="col-span-4">
-                        <h3 class="text-lg font-semibold text-gray-800 mt-5">Prefeitura</h3>
+                        <h3 class="text-lg font-semibold text-gray-800  pb-1">Prefeitura</h3>
                     </div>
                     <div>
                         <label for="te_prefeitura" class="block text-sm font-bold text-gray-600">
@@ -174,7 +163,7 @@
 
                     <!--  -->
                     <div class="col-span-4">
-                        <h3 class="text-lg font-semibold text-gray-800 mt-5">Bombeiro</h3>
+                        <h3 class="text-lg font-semibold text-gray-800  pb-1">Bombeiro</h3>
                     </div>
                     <div>
                         <label for="te_bombeiro" class="block text-sm font-bold text-gray-600">
@@ -217,7 +206,7 @@
                     <!-- Vigilância -->
 
                     <div class="col-span-4">
-                        <h3 class="text-lg font-semibold text-gray-800 mt-5">Vigilância</h3>
+                        <h3 class="text-lg font-semibold text-gray-800  pb-1">Vigilância</h3>
                     </div>
                     <div>
                         <label for="te_vigilancia" class="block text-sm font-bold text-gray-600">
@@ -259,7 +248,7 @@
 
 
                     <div class="col-span-4">
-                        <h3 class="text-lg font-semibold text-gray-800 mt-5">Funcionamento</h3>
+                        <h3 class="text-lg font-semibold text-gray-800  pb-1">Funcionamento</h3>
                     </div>
                     <div>
                         <label for="te_funcionamento" class="block text-sm font-bold text-gray-600">
@@ -298,6 +287,50 @@
                         </select>
                     </div>
 
+
+                    <div class="col-span-4">
+                        <h3 class="text-lg font-semibold text-gray-800 pb-1">Alvarás</h3>
+                    </div>
+                    <div>
+                        <label for="pdf_vigilancia" class="block text-sm font-bold text-gray-600">Alvará(Vigilância)</label>
+                        <input 
+                            name="pdf_vigilancia" 
+                            id="pdf_vigilancia" 
+                            required 
+                            type="file"
+                            accept=".pdf"
+                            class="mt-2 block w-full text-sm text-black border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:ring-indigo-500 dark:border-gray-600">
+                    </div>
+                    <div>
+                        <label for="pdf_sanitario" class="block text-sm font-bold text-gray-600">Alvará(Sanitário)</label>
+                        <input 
+                            name="pdf_sanitario" 
+                            id="pdf_sanitario" 
+                            required 
+                            type="file"
+                            accept=".pdf"
+                            class="mt-2 block w-full text-sm text-black border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:ring-indigo-500 dark:border-gray-600">
+                    </div>
+                    <div>
+                        <label for="pdf_bombeiro" class="block text-sm font-bold text-gray-600">Alvará(Bombeiro)</label>
+                        <input 
+                            name="pdf_bombeiro" 
+                            id="pdf_bombeiro" 
+                            required 
+                            type="file"
+                            accept=".pdf"
+                            class="mt-2 block w-full text-sm text-black border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:ring-indigo-500 dark:border-gray-600">
+                    </div>
+                    <div>
+                        <label for="pdf_ambiental" class="block text-sm font-bold text-gray-600">Alvará(Ambiental)</label>
+                        <input 
+                            name="pdf_ambiental" 
+                            id="pdf_ambiental" 
+                            required 
+                            type="file"
+                            accept=".pdf"
+                            class="mt-2 block w-full text-sm text-black border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:ring-indigo-500 dark:border-gray-600">
+                    </div>
 
                     <div class="mt-6 flex justify-end gap-4 col-span-4">
                         <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-bold text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">

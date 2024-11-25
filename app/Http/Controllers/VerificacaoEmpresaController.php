@@ -42,28 +42,34 @@ class VerificacaoEmpresaController extends Controller
 
     public function store(Request $request)
     {
-
         $request->validate([
             'inscricao_municipal' => 'required|unique:verificacao_empresas',
-            'pdf'=>'nullable|file|mimes:pdf|max:2048']
-            ,
-            ['inscricao_municipal.unique' => 'Essa inscrição já está sendo usada',
-        
+            'pdf_ambiental' => 'nullable|file|mimes:pdf|max:2048',
+            'pdf_bombeiro' => 'nullable|file|mimes:pdf|max:2048',
+            'pdf_vigilancia' => 'nullable|file|mimes:pdf|max:2048',
+            'pdf_sanitario' => 'nullable|file|mimes:pdf|max:2048',
+        ], [
+            'inscricao_municipal.unique' => 'Essa inscrição já está sendo usada',
         ]);
-
-        $pdfName = null;
-
-        if ($request->hasFile('pdf') && $request->file('pdf')->isValid()){
-            $requestPdf = $request->file('pdf');
-            $extension = $requestPdf->extension();
     
-            // Criar um nome único para o arquivo
-            $pdfName = md5($requestPdf->getClientOriginalName() . strtotime("now")) . "." . $extension;
+        // Array para armazenar os nomes dos arquivos
+        $pdfFiles = ['pdf_ambiental', 'pdf_bombeiro', 'pdf_vigilancia', 'pdf_sanitario'];
+        $uploadedFiles = [];
     
-            // Mover o arquivo para a pasta desejada
-            $requestPdf->move(public_path('img/pdf'), $pdfName);
+        // Processar os arquivos PDF
+        foreach ($pdfFiles as $file) {
+            if ($request->hasFile($file) && $request->file($file)->isValid()) {
+                $uploadedFile = $request->file($file);
+                $extension = $uploadedFile->extension();
+                $fileName = md5($uploadedFile->getClientOriginalName() . strtotime("now")) . '.' . $extension;
+                $uploadedFile->move(public_path('img/pdf'), $fileName);
+                $uploadedFiles[$file] = $fileName;
+            } else {
+                $uploadedFiles[$file] = null; // Caso o arquivo não seja enviado
+            }
         }
     
+        // Criar o registro no banco de dados
         $created = $this->verificacao_empresa->create([
             'ano' => $request->input('ano'),
             'nome_fantasia' => $request->input('nome_fantasia'),
@@ -88,14 +94,18 @@ class VerificacaoEmpresaController extends Controller
             'tp_funcionamento' => $request->input('tp_funcionamento'),
             'arq_funcionamento' => $request->input('arq_funcionamento'),
             'ent_funcionamento' => $request->input('ent_funcionamento'),
-            'ent_funcionamento' => $request->input('ent_funcionamento'),
-            'pdf' =>$pdfName
-        ]); 
+            // PDFs
+            'pdf_ambiental' => $uploadedFiles['pdf_ambiental'],
+            'pdf_bombeiro' => $uploadedFiles['pdf_bombeiro'],
+            'pdf_vigilancia' => $uploadedFiles['pdf_vigilancia'],
+            'pdf_sanitario' => $uploadedFiles['pdf_sanitario'],
+        ]);
     
         if ($created) {
             return redirect()->route('verificacao_empresa.index')->with('message', 'Empresa cadastrada com sucesso');
         }
     }
+    
 
     public function show(VerificacaoEmpresa $verificacao_empresa)
     {

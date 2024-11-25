@@ -37,7 +37,10 @@ class VerificacaoEmpresa extends Model
         'tp_funcionamento',
         'arq_funcionamento',
         'ent_funcionamento',
-        'pdf'
+        'pdf_ambiental',
+        'pdf_bombeiro',
+        'pdf_sanitario',
+        'pdf_vigilancia'
 
     ];
     protected $dates = ['data_validade'];
