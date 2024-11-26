@@ -1,8 +1,8 @@
 <x-app-layout>
     <div class="flex justify-center items-center min-h-screen mt-10 ">
-        <div class="max-w-4xl w-full bg-white shadow-lg rounded-lg p-6">
+        <div class="max-w-full w-11/12 bg-white shadow-md rounded-lg p-6">
             <h2 class="text-2xl font-semibold text-gray-700 text-center mb-6">Editar Empresa/Parceiro</h2>
-            <form action="{{ route('verificacao_empresa.update', ['verificacao_empresa' => $verificacaoempresa->id]) }}" method="post">
+            <form action="{{ route('verificacao_empresa.update', ['verificacao_empresa' => $verificacaoempresa->id]) }}" method="post" enctype="multipart/form-data">
 
                 @csrf
                 <input type="hidden" name="_method" value="PUT">
@@ -244,7 +244,6 @@
                                 <option value="❌" {{ $verificacaoempresa->ent_funcionamento == '❌' ? 'selected' : '' }}>Não</option>
                             </select>
                         </div>
-                
                 </div>
                 <div class="mt-6 flex justify-end gap-4">
                     <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-bold text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">Substituir</button>

@@ -22,8 +22,8 @@
         @if ($verificacaoempresa->isEmpty())
             <p class="text-center text-white">Nenhuma empresa com alvará próximo de vencer.</p>
         @else
-            <div class="flex justify-start mt-8">
-                <table class="overflow-x-auto table-auto border border-2 border-b-black border-spacing-0">
+            <div class="flex justify-start mt-10">
+                <table class="overflow-x-auto table-auto border-spacing-0">
                     <thead class="bg-[#2C6B5B]">
                         <th colspan="3" class="text-center text-white border border-white">
                             Empresas com Alvará Próximo de Vencer

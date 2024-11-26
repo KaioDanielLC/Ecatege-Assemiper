@@ -19,12 +19,11 @@ class AlvaraController extends Controller {
         $search = $request->input('search');
 
         // Consulta ao banco de dados com a pesquisa
-        $verificacao_empresas = VerificacaoEmpresa::whereBetween('data_validade', [$hoje, $dataLimite])
-            ->when($search, function ($query, $search) {
-                return $query->where('nome_fantasia', 'like', "%{$search}%");
-            })
-            ->orderBy('data_validade', 'asc')
-            ->get(); 
+        $verificacao_empresas = VerificacaoEmpresa::when($search, function ($query, $search) {
+            return $query->where('nome_fantasia', 'like', "%{$search}%");
+        })
+        ->orderBy('data_validade', 'asc')
+        ->get();
 
         return view('pages.alvara.list', [
             'verificacaoempresa' => $verificacao_empresas,

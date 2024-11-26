@@ -299,7 +299,8 @@
                             required 
                             type="file"
                             accept=".pdf"
-                            class="mt-2 block w-full text-sm text-black border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:ring-indigo-500 dark:border-gray-600">
+                            class="mt-2 block w-full text-sm text-black border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:ring-indigo-500 dark:border-gray-600"
+                        >
                     </div>
                     <div>
                         <label for="pdf_sanitario" class="block text-sm font-bold text-gray-600">Alvará(Sanitário)</label>
