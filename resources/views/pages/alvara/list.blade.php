@@ -25,7 +25,7 @@
             <div class="flex justify-start mt-10">
                 <table class="overflow-x-auto table-auto border-spacing-0">
                     <thead class="bg-[#2C6B5B]">
-                        <th colspan="3" class="text-center text-white border border-white">
+                        <th colspan="3" class="text-center text-white border-2 border-white">
                             Empresas com Alvará Próximo de Vencer
                         </th>
                         <tr>
