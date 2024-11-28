@@ -24,14 +24,15 @@ class VerificacaoEmpresaController extends Controller
         $search = request('search');
     
         if ($search) {
-            $verificacao_empresas = $this->verificacao_empresa
-                ->where('nome_fantasia', 'like', '%' . $search . '%')
-                ->orWhere('numero_pasta', 'like', '%' . $search . '%')
-                ->orWhere('inscricao_municipal', 'like', '%' . $search . '%')
-                ->get();
+            $verificacao_empresas = VerificacaoEmpresa::where(function ($query) use ($search) {
+                $query->where('nome_fantasia', 'like', '%' . $search . '%')
+                    ->orWhere('numero_pasta', 'like', '%' . $search . '%')
+                    ->orWhere('inscricao_municipal', 'like', '%' . $search . '%');
+            })->orderBy('nome_fantasia', 'asc')->get();
         } else {
             $verificacao_empresas = VerificacaoEmpresa::orderBy('nome_fantasia', 'asc')->get();
         }
+        
         
         return view('pages.documentacao_empresa.list', ['verificacaoempresa' => $verificacao_empresas]);
     }

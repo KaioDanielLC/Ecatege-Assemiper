@@ -39,11 +39,22 @@
         <div class="w-4/6">
             <div class="flex justify-center mt-10 gap-28 grid grid-cols-2 mb-10">
                 @foreach ($empresa as $empresas)
-                    <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md h-96 w-96 grid grid-cols-2">
+                    <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md h-96 w-96 relative grid grid-cols-2">
+
+                        <a href="{{ route('ImprimirEmpresa.pdf', [$empresas->id]) }}" target="_blank" 
+                            class="absolute top-2 right-2">
+                            <button type="button" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 transition duration-300 rounded-lg text-sm w-10 h-10 flex justify-center items-center shadow-lg">
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 512 512">
+                                    <path d="M128 0C92.7 0 64 28.7 64 64v96h64V64h226.7L384 93.3v66.7h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zm256 352v32v64H128v-64v-16v-16h256zm64 32h32c17.7 0 32-14.3 32-32v-96c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32h32v64c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64v-64zM432 248a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/>
+                                </svg>
+                            </button>
+                        </a>
+
                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center col-span-2">{{ $empresas->nome_empresa }}</h5>
                         <div>
                             <p>Nome do Titular:</p>
                             <p class="font-normal text-gray-700 dark:text-gray-400">{{ $empresas->nome_dono }}</p>
+
                         </div>
                         <div>
                             <p>Endereço:</p>

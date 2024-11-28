@@ -29,7 +29,7 @@
                             Empresas com Alvará Próximo de Vencer
                         </th>
                         <tr>
-                            <th class="px-3 py-2 text-left text-white font-medium border-2 border-white border-b-black text-sm text-center w-24">
+                            <th class="px-3 py-2 text-left text-white font-medium border-2 border-white border-b-black text-sm text-center">
                                 Nome da Empresa
                             </th>
                             <th class="px-3 py-2 text-left text-white font-medium border-2 border-white border-b-black text-sm text-center">
@@ -72,7 +72,7 @@
             <table id="tabela-alvaras" class="overflow-x-auto table-auto border-collapse border border-b-black border-r-black border-spacing-0">
                 <thead class="bg-[#2C6B5B]">
                     <tr class="p-2">
-                        <th class="border-2 font-medium border-white border-b-black w-24">Nome da Empresa</th>
+                        <th class="border-2 font-medium border-white border-b-black">Nome da Empresa</th>
                         <th class="border-2 font-medium border-white border-b-black w-24">Alvará(Ambiental)</th>
                         <th class="border-2 font-medium border-white border-b-black w-24">Alvará(Bombeiro)</th>
                         <th class="border-2 font-medium border-white border-b-black w-24">Alvará(Vigilância)</th>

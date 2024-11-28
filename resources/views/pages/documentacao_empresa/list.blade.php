@@ -103,16 +103,22 @@
                     <td class="border-2 border-black align-middle text-center">{{$verificacaoempresas->ent_funcionamento}}</td>                  
                     <td class="border-2 border-black align-middle text-center">
                         <div class="flex align-items-center">
-                            <a href="{{ route('verificacao_empresa.edit', ['verificacao_empresa' => $verificacaoempresas->id]) }}" class="flex justify-center items-center">
+                            <a href="{{ route('verificacao_empresa.edit', ['verificacao_empresa' => $verificacaoempresas->id]) }}">
                                 <button type="button" class="text-white bg-yellow-500 hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-yellow-300 transition duration-300 rounded-lg text-sm px-5 py-2.5 text-center  w-20 mr-2 mt-1 mb-1">
                                     Editar
                                 </button>
                             </a>
-                            <a href="{{ route('verificacao_empresa.destroy', [$verificacaoempresas->id]) }}" class="flex justify-center items-center delete-link" data-company-name="{{ $verificacaoempresas->nome_fantasia }}">
-                                <button type="button" class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 transition duration-300 rounded-lg text-sm px-5 py-2.5 text-center w-20 mt-1 mb-1">
+                            <a href="{{ route('verificacao_empresa.destroy', [$verificacaoempresas->id]) }}" class="delete-link" data-company-name="{{ $verificacaoempresas->nome_fantasia }}">
+                                <button type="button" class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 transition duration-300 rounded-lg text-sm px-5 py-2.5 text-center w-20 mt-1 mb-1 mr-2">
                                     Excluir
                                 </button>
                             </a>
+
+                            <a href="{{ route('gerar.pdf', [$verificacaoempresas->id]) }}" target="_blank">
+                                <button type="button" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 transition duration-300 rounded-lg text-sm w-10 h-10 flex justify-center items-center mt-1 mb-1 mr-1">
+                                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M128 0C92.7 0 64 28.7 64 64l0 96 64 0 0-96 226.7 0L384 93.3l0 66.7 64 0 0-66.7c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0L128 0zM384 352l0 32 0 64-256 0 0-64 0-16 0-16 256 0zm64 32l32 0c17.7 0 32-14.3 32-32l0-96c0-35.3-28.7-64-64-64L64 192c-35.3 0-64 28.7-64 64l0 96c0 17.7 14.3 32 32 32l32 0 0 64c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-64zM432 248a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>
+                                </button>
+                            </a>                            
                         </div>
                     </td>
                 </tr>
@@ -144,9 +150,8 @@
             </button>
         </a>
     </div>
-
-
 <script>
+        <button onclick="window.print()"></button>
         document.addEventListener('DOMContentLoaded', function() {
         const confirmModal = document.getElementById('confirmModal');
         const cancelBtn = document.getElementById('cancelBtn');

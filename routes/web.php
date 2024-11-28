@@ -6,6 +6,7 @@ use App\Http\Controllers\EmpresaFilialController;
 use App\Http\Controllers\CountController;
 use App\Http\Controllers\VerificacaoEmpresaController;
 use App\Http\Controllers\AlvaraController;
+use App\Http\Controllers\PdfController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,8 @@ Route::resource('empresa', EmpresaController::class)->withTrashed()->middleware(
 Route::resource('empresa_filial', EmpresaFilialController::class)->withTrashed()->middleware(['auth', 'verified']);
 Route::resource('verificacao_empresa', VerificacaoEmpresaController::class)->withTrashed()->middleware(['auth', 'verified']);
 Route::resource('alvara', AlvaraController::class)->withTrashed()->middleware(['auth', 'verified']);
+Route::get('/Gerar-pdf/{id}', [PdfController::class, 'GerarPdf'])->name('gerar.pdf');
+Route::get('/ImprimirEmpresa/{id}', [PdfController::class, 'ImprimirEmpresa'])->name('ImprimirEmpresa.pdf');
 
 
 
