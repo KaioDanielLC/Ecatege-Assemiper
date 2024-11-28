@@ -52,29 +52,29 @@
 
                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center col-span-2">{{ $empresas->nome_empresa }}</h5>
                         <div>
-                            <p>Nome do Titular:</p>
-                            <p class="font-normal text-gray-700 dark:text-gray-400">{{ $empresas->nome_dono }}</p>
+                            <p class="font-medium">Nome do Titular:</p>
+                            <p class="font-normal text-gray-700 dark:text-gray-700 pr-4">{{ $empresas->nome_dono }}</p>
 
                         </div>
                         <div>
-                            <p>Endereço:</p>
-                            <p class="font-normal text-gray-700 dark:text-gray-400">{{ $empresas->endereco }}</p>
+                            <p class="font-medium">Endereço:</p>
+                            <p class="font-normal text-gray-700 dark:text-gray-700">{{ $empresas->endereco }}</p>
                         </div>
                         <div>
-                            <p>Celular:</p>
-                            <p class="font-normal text-gray-700 dark:text-gray-400">{{ $empresas->celular }}</p>
+                            <p class="font-medium">Celular:</p>
+                            <p class="font-normal text-gray-700 dark:text-gray-700">{{ $empresas->celular }}</p>
                         </div>
                         <div>
-                            <p>WhatsApp:</p>
-                            <p class="font-normal text-gray-700 dark:text-gray-400">{{ $empresas->whatsapp }}</p>
+                            <p class="font-medium">WhatsApp:</p>
+                            <p class="font-normal text-gray-700 dark:text-gray-700">{{ $empresas->whatsapp }}</p>
                         </div>
                         <div>
-                            <p>Telefone Fixo:</p>
-                            <p class="font-normal text-gray-700 dark:text-gray-400">{{ $empresas->telefone }}</p>
+                            <p class="font-medium">Telefone Fixo:</p>
+                            <p class="font-normal text-gray-700 dark:text-gray-700">{{ $empresas->telefone }}</p>
                         </div>
                         <div>
-                            <p>Email:</p>
-                            <p class="font-normal text-gray-700 dark:text-gray-400 break-all">{{ $empresas->email }}</p>
+                            <p class="font-medium">Email:</p>
+                            <p class="font-normal text-gray-700 dark:text-gray-700 break-all">{{ $empresas->email }}</p>
                         </div>
 
                         <a href="{{ route('empresa.edit', ['empresa' => $empresas->id]) }}" class="flex justify-center items-center">
@@ -117,6 +117,14 @@
         </a>
     </div>
 
+    <div class="ms-36 text-start absolute">
+        <button onclick="scrollToTop()" id="scrollTopBtn" class="hidden fixed left-10 bottom-10 focus:outline-none text-white font-medium rounded-full bg-[#2C6B5B]">
+            <div class="w-16 h-16 flex justify-center items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="h-8 w-8"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2 160 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-306.7L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/></svg>      
+            </div>
+        </button>
+    </div>
+
 <script>
         document.addEventListener('DOMContentLoaded', function() {
         const confirmModal = document.getElementById('confirmModal');
@@ -143,6 +151,21 @@
             window.location.href = deleteUrl; // Redireciona para a URL de exclusão
         });
         });
+
+        window.onscroll = function() { toggleScrollButton(); };
+
+        function toggleScrollButton() {
+            const scrollTopBtn = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollTopBtn.classList.remove("hidden");
+            } else {
+                scrollTopBtn.classList.add("hidden");
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 </script>
 
 </x-app-layout>

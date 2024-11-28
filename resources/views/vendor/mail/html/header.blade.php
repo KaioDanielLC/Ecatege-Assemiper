@@ -3,7 +3,7 @@
 <td class="header">
 <a href="#" style="display: inline-block;">
 @if (trim($slot) === 'Laravel')
-<img src="{{ asset('images/favicon.png') }}" alt="Ecatege Logo" style="height: 60px;">
+<img src="{{ asset('img/favicon.png') }}" alt="Ecatege Logo">
 @else
 {{ $slot }}
 @endif
