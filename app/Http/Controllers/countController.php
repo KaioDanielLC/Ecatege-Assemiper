@@ -33,7 +33,7 @@ class countController extends Controller
 
       $hoje = Carbon::today();
 
-      $count_alvara = VerificacaoEmpresa::whereNotNull('data_validade')->where('data_validade', '>=', $hoje)->count();
+      $count_alvara = VerificacaoEmpresa::whereNotNull('data_validade')->where('data_validade', '>=', $hoje)->OrWhere('data_validade', '<=', $hoje)->count();
       
 
       return view('dashboard', ['count' => $count, 'count_filial' => $count_filial, 'count_verificacao' => $count_verificacao ,'count_alvara' => $count_alvara]);
