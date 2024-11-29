@@ -18,6 +18,7 @@ class AlvaraController extends Controller {
         // Captura o termo de pesquisa da requisição
         $search = $request->input('search');
 
+
         // Consulta ao banco de dados com a pesquisa
         $verificacao_empresas = VerificacaoEmpresa::when($search, function ($query, $search) {
             return $query->where('nome_fantasia', 'like', "%{$search}%");

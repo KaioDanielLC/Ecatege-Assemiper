@@ -50,19 +50,25 @@
                                     {{ $verificacaoempresas->data_validade->format('d/m/Y') }}
                                 </td>
                                 <td class="border-2 border-black align-middle text-center"> 
+                                    @php
+                                        $diasRestantes = $today->diffInDays($verificacaoempresas->data_validade, false); // false permite valores negativos
+                                    @endphp
+                    
                                     @if ($verificacaoempresas->data_validade->isSameDay($today)) 
-                                    <div class="flex justify-center items-center">
-                                        <span class="text-red-600">Vence hoje</span>
-                                        <svg class="ms-2 h-4 w-4 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ff0000" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg>                                    
-                                    </div>
-                                    
-                                    @else {{ $today->diffInDays($verificacaoempresas->data_validade) }} dia(s) 
-
-                                    @endif 
+                                        <div class="flex justify-center items-center">
+                                            <span class="text-red-600">Vence hoje</span>
+                                            <svg class="ms-2 h-4 w-4 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ff0000" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg>                                    
+                                        </div>
+                                    @elseif ($diasRestantes > 0)
+                                        {{ $diasRestantes }} dia(s)
+                                    @else
+                                        Expirado há {{ abs($diasRestantes) }} dia(s)
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
+                    
                 </table>
             </div>
         @endif
