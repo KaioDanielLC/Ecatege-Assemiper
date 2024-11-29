@@ -77,6 +77,10 @@
                 <td>{{ $VerificacaoEmpresa->inscricao_municipal }}</td>
             </tr>
             <tr>
+                <th>Data de Validade</th>
+                <td>{{\Carbon\Carbon::parse($VerificacaoEmpresa->data_validade)->format('d/m/Y') }}</td>
+            </tr>
+            <tr>
                 <th>Área Total</th>
                 <td>{{ $VerificacaoEmpresa->area_total }}</td>
             </tr>

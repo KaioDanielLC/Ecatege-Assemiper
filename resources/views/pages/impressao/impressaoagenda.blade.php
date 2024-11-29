@@ -73,6 +73,10 @@
                 <td>{{ $empresa->email }}</td>
             </tr>
             <tr>
+                <th>Endereço</th>
+                <td>{{ $empresa->endereco }}</td>
+            </tr>
+            <tr>
                 <th>Telefone</th>
                 <td>{{ $empresa->telefone }}</td>
             </tr>
