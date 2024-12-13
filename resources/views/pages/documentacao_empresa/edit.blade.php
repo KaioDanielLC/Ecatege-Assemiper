@@ -246,6 +246,37 @@
                         <div class="col-span-4">
                             <h3 class="text-lg font-semibold text-gray-800 pb-1">Alvarás</h3>
                         </div>
+
+                        <div>
+                            <label for="pdf_ambiental" class="block text-sm font-bold text-gray-600">Alvará(Ambiental)</label>
+                            <input 
+                                name="pdf_ambiental" 
+                                id="pdf_ambiental" 
+                                type="file"
+                                accept=".pdf"
+                                class="mt-2 block w-full text-sm text-black border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:ring-indigo-500 dark:border-gray-600">
+                        </div>
+
+                        <div>
+                            <label for="pdf_bombeiro" class="block text-sm font-bold text-gray-600">Alvará(Bombeiro)</label>
+                            <input 
+                                name="pdf_bombeiro" 
+                                id="pdf_bombeiro" 
+                                type="file"
+                                accept=".pdf"
+                                class="mt-2 block w-full text-sm text-black border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:ring-indigo-500 dark:border-gray-600">
+                        </div>
+
+                        <div>
+                            <label for="pdf_sanitario" class="block text-sm font-bold text-gray-600">Alvará(Sanitário)</label>
+                            <input 
+                                name="pdf_sanitario" 
+                                id="pdf_sanitario" 
+                                type="file"
+                                accept=".pdf"
+                                class="mt-2 block w-full text-sm text-black border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:ring-indigo-500 dark:border-gray-600">
+                        </div>
+    
                         <div>
                             <label for="pdf_vigilancia" class="block text-sm font-bold text-gray-600">Alvará(Vigilância)</label>
                             <input 
@@ -256,34 +287,6 @@
                                 class="mt-2 block w-full text-sm text-black border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:ring-indigo-500 dark:border-gray-600"
                             >
                         </div>
-                        <div>
-                            <label for="pdf_sanitario" class="block text-sm font-bold text-gray-600">Alvará(Sanitário)</label>
-                            <input 
-                                name="pdf_sanitario" 
-                                id="pdf_sanitario" 
-                                type="file"
-                                accept=".pdf"
-                                class="mt-2 block w-full text-sm text-black border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:ring-indigo-500 dark:border-gray-600">
-                        </div>
-                        <div>
-                            <label for="pdf_bombeiro" class="block text-sm font-bold text-gray-600">Alvará(Bombeiro)</label>
-                            <input 
-                                name="pdf_bombeiro" 
-                                id="pdf_bombeiro" 
-                                type="file"
-                                accept=".pdf"
-                                class="mt-2 block w-full text-sm text-black border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:ring-indigo-500 dark:border-gray-600">
-                        </div>
-                        <div>
-                            <label for="pdf_ambiental" class="block text-sm font-bold text-gray-600">Alvará(Ambiental)</label>
-                            <input 
-                                name="pdf_ambiental" 
-                                id="pdf_ambiental" 
-                                type="file"
-                                accept=".pdf"
-                                class="mt-2 block w-full text-sm text-black border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:ring-indigo-500 dark:border-gray-600">
-                        </div>
-    
                 </div>
                 <div class="mt-6 flex justify-end gap-4">
                     <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-bold text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">Substituir</button>

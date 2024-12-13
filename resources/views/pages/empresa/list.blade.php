@@ -50,7 +50,7 @@
                             </button>
                         </a>
 
-                        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 text-center col-span-2 truncate">{{ $empresas->nome_empresa }}</h5>
+                        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 text-center col-span-2 break-normal">{{ $empresas->nome_empresa }}</h5>
                         
                         <div>
                             <p class="font-medium">Nome do Titular:</p>
@@ -82,7 +82,7 @@
                             <p class="font-normal text-gray-700 dark:text-gray-700 ">{{ $empresas->email }}</p>
                         </div>
 
-                        <div class="flex justify-center items-center col-span-2">
+                        <div class="flex justify-center items-center col-span-2 mt-2">
                             <a href="{{ route('empresa.edit', ['empresa' => $empresas->id]) }}" class="mr-12">
                                 <button type="button" class="text-white bg-yellow-500 hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-yellow-300 transition duration-300 font-bold rounded-lg text-sm px-5 py-2.5 w-20">
                                     Editar

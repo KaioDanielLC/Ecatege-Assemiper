@@ -50,7 +50,7 @@
                         </button>
                     </a>
 
-                    <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 text-center col-span-2">{{$empresa_filiais->nome_empresa}}</h5>
+                    <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 text-center col-span-2 break-normal">{{$empresa_filiais->nome_empresa}}</h5>
                     <div>
                         <p>Nome do Titular:</p>
                         <p class="font-normal text-gray-700 dark:text-gray-700">{{$empresa_filiais->nome_dono}}</p>
@@ -77,7 +77,7 @@
                     </div>
                     <div>
                         <p>Empresa Matriz :</p>
-                        <p class="font-normal text-gray-700 dark:text-gray-700 ">{{$empresa_filiais->empresa->nome_empresa}}</p>
+                        <p class="font-normal text-gray-700 dark:text-gray-700">{{$empresa_filiais->empresa->nome_empresa}}</p>
                     </div>
                     <div></div>
 

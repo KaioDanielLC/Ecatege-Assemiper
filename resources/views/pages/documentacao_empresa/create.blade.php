@@ -291,27 +291,17 @@
                     <div class="col-span-4">
                         <h3 class="text-lg font-semibold text-gray-800 pb-1">Alvarás</h3>
                     </div>
+
                     <div>
-                        <label for="pdf_vigilancia" class="block text-sm font-bold text-gray-600">Alvará(Vigilância)</label>
+                        <label for="pdf_ambiental" class="block text-sm font-bold text-gray-600">Alvará(Ambiental)</label>
                         <input 
-                            name="pdf_vigilancia" 
-                            id="pdf_vigilancia" 
-                            required 
-                            type="file"
-                            accept=".pdf"
-                            class="mt-2 block w-full text-sm text-black border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:ring-indigo-500 dark:border-gray-600"
-                        >
-                    </div>
-                    <div>
-                        <label for="pdf_sanitario" class="block text-sm font-bold text-gray-600">Alvará(Sanitário)</label>
-                        <input 
-                            name="pdf_sanitario" 
-                            id="pdf_sanitario" 
-                            required 
+                            name="pdf_ambiental" 
+                            id="pdf_ambiental"
                             type="file"
                             accept=".pdf"
                             class="mt-2 block w-full text-sm text-black border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:ring-indigo-500 dark:border-gray-600">
                     </div>
+
                     <div>
                         <label for="pdf_bombeiro" class="block text-sm font-bold text-gray-600">Alvará(Bombeiro)</label>
                         <input 
@@ -322,15 +312,28 @@
                             accept=".pdf"
                             class="mt-2 block w-full text-sm text-black border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:ring-indigo-500 dark:border-gray-600">
                     </div>
+
                     <div>
-                        <label for="pdf_ambiental" class="block text-sm font-bold text-gray-600">Alvará(Ambiental)</label>
+                        <label for="pdf_sanitario" class="block text-sm font-bold text-gray-600">Alvará(Sanitário)</label>
                         <input 
-                            name="pdf_ambiental" 
-                            id="pdf_ambiental" 
+                            name="pdf_sanitario" 
+                            id="pdf_sanitario" 
                             required 
                             type="file"
                             accept=".pdf"
                             class="mt-2 block w-full text-sm text-black border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:ring-indigo-500 dark:border-gray-600">
+                    </div>
+
+                    <div>
+                        <label for="pdf_vigilancia" class="block text-sm font-bold text-gray-600">Alvará(Vigilância)</label>
+                        <input 
+                            name="pdf_vigilancia" 
+                            id="pdf_vigilancia" 
+                            required 
+                            type="file"
+                            accept=".pdf"
+                            class="mt-2 block w-full text-sm text-black border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:ring-indigo-500 dark:border-gray-600"
+                        >
                     </div>
 
                     <div class="mt-6 flex justify-end gap-4 col-span-4">
