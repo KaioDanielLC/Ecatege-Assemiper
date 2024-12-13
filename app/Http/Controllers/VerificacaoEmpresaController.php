@@ -123,14 +123,57 @@ class VerificacaoEmpresaController extends Controller
 
     public function update(Request $request, VerificacaoEmpresa $verificacao_empresa)
     {
+        // Validação dos arquivos PDF
+        $request->validate([
+            'pdf_ambiental' => 'nullable|file|mimes:pdf|max:2048',
+            'pdf_vigilancia' => 'nullable|file|mimes:pdf|max:2048',
+            'pdf_sanitario' => 'nullable|file|mimes:pdf|max:2048',
+            'pdf_bombeiro' => 'nullable|file|mimes:pdf|max:2048',
+        ]);
     
-        $id = $verificacao_empresa->id;
-        $update = $this->verificacao_empresa->where('id', $id)->update($request->except(['_token', '_method']));
-        if ($update) {
-            return redirect()->route('verificacao_empresa.index')->with('message', 'Empresa atualizada com sucesso');
+        // Array de arquivos PDF
+        $pdfFiles = ['pdf_ambiental', 'pdf_vigilancia', 'pdf_sanitario', 'pdf_bombeiro'];
+        $uploadedFiles = [];
+    
+        foreach ($pdfFiles as $file) {
+            if ($request->hasFile($file) && $request->file($file)->isValid()) {
+                // Apagar o PDF anterior, se houver
+                if ($verificacao_empresa->$file) {
+                    Storage::delete(public_path('img/pdf/' . $verificacao_empresa->$file));
+                }
+    
+                // Armazenar o novo arquivo
+                $uploadedFile = $request->file($file);
+                $fileName = md5($uploadedFile->getClientOriginalName() . strtotime("now")) . '.' . $uploadedFile->extension();
+                $uploadedFile->move(public_path('img/pdf'), $fileName);
+                $uploadedFiles[$file] = $fileName;
+            } else {
+                // Caso não tenha enviado um novo PDF, manter o atual
+                $uploadedFiles[$file] = $verificacao_empresa->$file;
+            }
         }
     
+        // Atualizar os dados no banco de dados
+        $verificacao_empresa->update([
+            'pdf_ambiental' => $uploadedFiles['pdf_ambiental'],
+            'pdf_vigilancia' => $uploadedFiles['pdf_vigilancia'],
+            'pdf_sanitario' => $uploadedFiles['pdf_sanitario'],
+            'pdf_bombeiro' => $uploadedFiles['pdf_bombeiro'],
+            // Outros campos do formulário
+            'nome_fantasia' => $request->input('nome_fantasia'),
+            'numero_pasta' => $request->input('numero_pasta'),
+            'ano' => $request->input('ano'),
+            'data_validade' => $request->input('data_validade'),
+            'inscricao_municipal' => $request->input('inscricao_municipal'),
+            'area_total' => $request->input('area_total'),
+            'area_utilizada' => $request->input('area_utilizada'),
+
+            // Adicione outros campos aqui
+        ]);
+    
+        return redirect()->route('verificacao_empresa.index')->with('message', 'Empresa atualizada com sucesso');
     }
+    
 
     public function destroy(VerificacaoEmpresa $verificacao_empresa)
     {

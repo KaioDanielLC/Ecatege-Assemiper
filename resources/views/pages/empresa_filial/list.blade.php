@@ -41,7 +41,6 @@
                 @foreach ($empresa_filial as $empresa_filiais )
                 <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md h-96 w-96 relative grid grid-cols-2 ">
 
-
                     <a href="{{ route('ImprimirEmpresafilial.pdf', [$empresa_filiais->id]) }}" target="_blank" 
                         class="absolute top-2 right-2">
                         <button type="button" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 transition duration-300 rounded-lg text-sm w-10 h-10 flex justify-center items-center shadow-lg z-10">
