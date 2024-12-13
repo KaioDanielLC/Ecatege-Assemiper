@@ -151,7 +151,6 @@
         </a>
     </div>
 <script>
-        <button onclick="window.print()"></button>
         document.addEventListener('DOMContentLoaded', function() {
         const confirmModal = document.getElementById('confirmModal');
         const cancelBtn = document.getElementById('cancelBtn');

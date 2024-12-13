@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatório Operacional</title>
+    <title>Relatório de Informações</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,7 +20,7 @@
             text-align: center;
             margin-bottom: 30px;
         }
-        .header h1 {
+        .header h2 {
             font-size: 18px;
             margin-bottom: 5px;
         }
@@ -53,55 +53,54 @@
     <div class="container">
         <!-- Cabeçalho -->
         <div class="header">
-            <h2>Relatório Operacional-<span>{{$VerificacaoEmpresa->nome_fantasia}}</span></h2>
+            <h2>Relatório de Informações da Filial-<span>{{$empresa_filial->nome_empresa}}</span></h2>
             <p>Emitido em: {{ now()->format('d/m/Y') }}</p>
         </div>
 
         <!-- Tabela de Informações Gerais -->
-        <h2 class="section-title">Informações Gerais </h2>
+        <h2 class="section-title">Informações Gerais</h2>
         <table>
             <tr>
-                <th>Ano</th>
-                <td>{{ $VerificacaoEmpresa->ano }}</td>
+                <th>Nome do Titular</th>
+                <td>{{ $empresa_filial->nome_empresa }}</td>
             </tr>
             <tr>
-                <th>Número da Pasta</th>
-                <td>{{ $VerificacaoEmpresa->numero_pasta }}</td>
+                <th>Nome do Titular</th>
+                <td>{{ $empresa_filial->nome_dono }}</td>
             </tr>
             <tr>
-                <th>Nome Fantasia</th>
-                <td>{{ $VerificacaoEmpresa->nome_fantasia }}</td>
+                <th>Endereço</th>
+                <td>{{ $empresa_filial->endereco }}</td>
             </tr>
             <tr>
-                <th>Inscrição Municipal</th>
-                <td>{{ $VerificacaoEmpresa->inscricao_municipal }}</td>
+                <th>Celular</th>
+                <td>{{ $empresa_filial->celular}}</td>
             </tr>
             <tr>
-                <th>Data de Validade</th>
-                <td>{{\Carbon\Carbon::parse($VerificacaoEmpresa->data_validade)->format('d/m/Y') }}</td>
+                <th>WhatsApp</th>
+                <td>{{ $empresa_filial->whatsapp }}</td>
             </tr>
             <tr>
-                <th>Área Total</th>
-                <td>{{ $VerificacaoEmpresa->area_total }}</td>
+                <th>Email(Caso exista)</th>
+                <td>{{ $empresa_filial->email }}</td>
             </tr>
             <tr>
-                <th>Área Utilizada</th>
-                <td>{{ $VerificacaoEmpresa->area_utilizada }}</td>
+                <th>Empresa Matriz</th>
+                <td>{{ $empresa_filial->empresa->nome_empresa}}</td>
             </tr>
         </table>
 
-        <!-- Informações de Criação -->
         <h2 class="section-title">Informações de Criação</h2>
         <table>
             <tr>
                 <th>Criado em</th>
-                <td>{{ $VerificacaoEmpresa->created_at->format('d/m/Y H:i') }}</td>
+                <td>{{ $empresa_filial->created_at->format('d/m/Y H:i') }}</td>
             </tr>
             <tr>
                 <th>Última Atualização</th>
-                <td>{{ $VerificacaoEmpresa->updated_at->format('d/m/Y H:i') }}</td>
+                <td>{{ $empresa_filial->updated_at->format('d/m/Y H:i') }}</td>
             </tr>
         </table>
     </div>
 </body>
-</html> 
+</html>

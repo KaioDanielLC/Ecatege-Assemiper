@@ -48,4 +48,6 @@ class VerificacaoEmpresa extends Model
     protected $casts = [
         'data_validade' => 'date',
     ];
+
+    
 }

@@ -62,7 +62,7 @@
                                     @elseif ($diasRestantes > 0)
                                         {{ $diasRestantes }} dia(s)
                                     @else
-                                        Expirado há {{ abs($diasRestantes) }} dia(s)
+                                        <span class="text-red-600">Expirado há {{ abs($diasRestantes) }} dia(s)</span>
                                     @endif
                                 </td>
                             </tr>

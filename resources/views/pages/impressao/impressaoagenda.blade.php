@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatório de Verificação da Empresa</title>
+    <title>Relatório de Comunicação e Informações</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,7 +20,7 @@
             text-align: center;
             margin-bottom: 30px;
         }
-        .header h1 {
+        .header h2 {
             font-size: 18px;
             margin-bottom: 5px;
         }
@@ -53,7 +53,7 @@
     <div class="container">
         <!-- Cabeçalho -->
         <div class="header">
-            <h2>Relatório da empresa <span>{{$empresa->nome_empresa}}</span></h2>
+            <h2>Relatório de Comunicação e Informações-<span>{{$empresa->nome_empresa}}</span></h2>
             <p>Emitido em: {{ now()->format('d/m/Y') }}</p>
         </div>
 

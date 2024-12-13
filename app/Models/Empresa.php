@@ -22,4 +22,5 @@ class Empresa extends Model
     {
         return $this->hasMany(Empresa_Filial::class, 'empresa_id');
     }
+    
 }

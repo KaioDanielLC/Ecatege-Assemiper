@@ -32,7 +32,7 @@ Route::resource('verificacao_empresa', VerificacaoEmpresaController::class)->wit
 Route::resource('alvara', AlvaraController::class)->withTrashed()->middleware(['auth', 'verified']);
 Route::get('/Gerar-pdf/{id}', [PdfController::class, 'GerarPdf'])->name('gerar.pdf');
 Route::get('/ImprimirEmpresa/{id}', [PdfController::class, 'ImprimirEmpresa'])->name('ImprimirEmpresa.pdf');
-
+Route::get('/ImprimirEmpresafilial/{id}', [PdfController::class, 'ImprimirEmpresafilial'])->name('ImprimirEmpresafilial.pdf');
 
 
 

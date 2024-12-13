@@ -62,9 +62,8 @@
                                 value="{{ $verificacaoempresa->inscricao_municipal}}"
                                 name="inscricao_municipal"
                                 id="inscricao_municipal"
-                                placeholder="111111"
-                                maxlength="6"
-                                minlength="6"
+                                placeholder="123456"
+                                pattern="\d{6}"
                                 required
                                 type="text"
                                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
@@ -244,6 +243,8 @@
                                 <option value="❌" {{ $verificacaoempresa->ent_funcionamento == '❌' ? 'selected' : '' }}>Não</option>
                             </select>
                         </div>
+
+                        
                 </div>
                 <div class="mt-6 flex justify-end gap-4">
                     <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-bold text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">Substituir</button>

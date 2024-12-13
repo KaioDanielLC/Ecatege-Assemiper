@@ -127,7 +127,6 @@ class VerificacaoEmpresaController extends Controller
         $id = $verificacao_empresa->id;
         $update = $this->verificacao_empresa->where('id', $id)->update($request->except(['_token', '_method']));
         if ($update) {
-        
             return redirect()->route('verificacao_empresa.index')->with('message', 'Empresa atualizada com sucesso');
         }
     
