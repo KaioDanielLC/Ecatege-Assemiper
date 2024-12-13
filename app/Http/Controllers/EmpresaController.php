@@ -59,6 +59,7 @@ class EmpresaController extends Controller
             'nome_empresa' => $request->input('nome_empresa'),
             'nome_dono' => $request->input('nome_dono'),
             'endereco' => $request->input('endereco'),
+            'cidade'=>$request->input('cidade'),
             'telefone' => $request->input('telefone'),
             'celular' => $request->input('celular'),
             'email' => $request->input('email'),

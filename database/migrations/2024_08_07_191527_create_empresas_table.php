@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nome_empresa');
             $table->string('nome_dono');
             $table->string('endereco');
+            $table->string('cidade');
             $table->string('telefone');
             $table->string('whatsapp');
             $table->string('celular');

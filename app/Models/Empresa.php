@@ -13,6 +13,7 @@ class Empresa extends Model
         'nome_empresa',
         'nome_dono',
         'endereco',
+        'cidade',
         'telefone',
         'celular',
         'whatsapp',

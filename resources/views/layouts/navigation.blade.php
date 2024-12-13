@@ -15,7 +15,7 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     <x-nav-link :href="route('empresa.index')" :active="request()->routeIs('empresa.index')" class="text-white">
-                        {{ __('Empresas') }}
+                        {{ __('Matrizes') }}
                     </x-nav-link>
                     <x-nav-link :href="route('empresa_filial.index')" :active="request()->routeIs('empresa_filial.index')" class="text-white">
                         {{ __('Filiais') }}
