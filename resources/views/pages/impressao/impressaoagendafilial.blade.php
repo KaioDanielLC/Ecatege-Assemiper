@@ -73,20 +73,20 @@
                 <td>{{ $empresa_filial->endereco }}</td>
             </tr>
             <tr>
-                <th>Celular</th>
-                <td>{{ $empresa_filial->celular}}</td>
-            </tr>
-            <tr>
-                <th>WhatsApp</th>
-                <td>{{ $empresa_filial->whatsapp }}</td>
+                <th>Empresa Matriz</th>
+                <td>{{ $empresa_filial->empresa->nome_empresa}}</td>
             </tr>
             <tr>
                 <th>Email(Caso exista)</th>
                 <td>{{ $empresa_filial->email }}</td>
             </tr>
             <tr>
-                <th>Empresa Matriz</th>
-                <td>{{ $empresa_filial->empresa->nome_empresa}}</td>
+                <th>Celular</th>
+                <td>{{ $empresa_filial->celular}}</td>
+            </tr>
+            <tr>
+                <th>WhatsApp</th>
+                <td>{{ $empresa_filial->whatsapp }}</td>
             </tr>
         </table>
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatório de Comunicação e Informações</title>
+    <title>Relatório de Informações</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -53,7 +53,7 @@
     <div class="container">
         <!-- Cabeçalho -->
         <div class="header">
-            <h2>Relatório de Comunicação e Informações-<span>{{$empresa->nome_empresa}}</span></h2>
+            <h2>Relatório de Informações da Matriz-<span>{{$empresa->nome_empresa}}</span></h2>
             <p>Emitido em: {{ now()->format('d/m/Y') }}</p>
         </div>
 
@@ -69,12 +69,16 @@
                 <td>{{ $empresa->nome_dono }}</td>
             </tr>
             <tr>
-                <th>Email(Caso exista)</th>
-                <td>{{ $empresa->email }}</td>
-            </tr>
-            <tr>
                 <th>Endereço</th>
                 <td>{{ $empresa->endereco }}</td>
+            </tr>
+            <tr>
+                <th>Cidade</th>
+                <td>{{ $empresa->cidade }}</td>
+            </tr>
+            <tr>
+                <th>Email(Caso exista)</th>
+                <td>{{ $empresa->email }}</td>
             </tr>
             <tr>
                 <th>Telefone</th>
