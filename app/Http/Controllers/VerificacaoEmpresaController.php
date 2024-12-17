@@ -50,12 +50,13 @@ class VerificacaoEmpresaController extends Controller
             'pdf_bombeiro' => 'nullable|file|mimes:pdf|max:2048',
             'pdf_vigilancia' => 'nullable|file|mimes:pdf|max:2048',
             'pdf_sanitario' => 'nullable|file|mimes:pdf|max:2048',
+            'pdf_extra' => 'nullable|file|mimes:pdf|max:2048',
         ], [
             'inscricao_municipal.unique' => 'Essa inscrição já está sendo usada',
         ]);
     
         // Array para armazenar os nomes dos arquivos
-        $pdfFiles = ['pdf_ambiental', 'pdf_bombeiro', 'pdf_vigilancia', 'pdf_sanitario'];
+        $pdfFiles = ['pdf_ambiental', 'pdf_bombeiro', 'pdf_vigilancia', 'pdf_sanitario', 'pdf_extra'];
         $uploadedFiles = [];
     
         // Processar os arquivos PDF
@@ -101,6 +102,7 @@ class VerificacaoEmpresaController extends Controller
             'pdf_bombeiro' => $uploadedFiles['pdf_bombeiro'],
             'pdf_vigilancia' => $uploadedFiles['pdf_vigilancia'],
             'pdf_sanitario' => $uploadedFiles['pdf_sanitario'],
+            'pdf_extra' => $uploadedFiles['pdf_extra'],
         ]);
     
         if ($created) {
@@ -129,10 +131,11 @@ class VerificacaoEmpresaController extends Controller
             'pdf_vigilancia' => 'nullable|file|mimes:pdf|max:2048',
             'pdf_sanitario' => 'nullable|file|mimes:pdf|max:2048',
             'pdf_bombeiro' => 'nullable|file|mimes:pdf|max:2048',
+            'pdf_extra' => 'nullable|file|mimes:pdf|max:2048',
         ]);
     
         // Array de arquivos PDF
-        $pdfFiles = ['pdf_ambiental', 'pdf_vigilancia', 'pdf_sanitario', 'pdf_bombeiro'];
+        $pdfFiles = ['pdf_ambiental', 'pdf_vigilancia', 'pdf_sanitario', 'pdf_bombeiro', 'pdf_extra'];
         $uploadedFiles = [];
     
         foreach ($pdfFiles as $file) {
@@ -159,6 +162,7 @@ class VerificacaoEmpresaController extends Controller
             'pdf_vigilancia' => $uploadedFiles['pdf_vigilancia'],
             'pdf_sanitario' => $uploadedFiles['pdf_sanitario'],
             'pdf_bombeiro' => $uploadedFiles['pdf_bombeiro'],
+            'pdf_extra' => $uploadedFiles['pdf_extra'],
             // Outros campos do formulário
             'nome_fantasia' => $request->input('nome_fantasia'),
             'numero_pasta' => $request->input('numero_pasta'),

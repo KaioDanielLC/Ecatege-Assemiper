@@ -20,10 +20,6 @@
             text-align: center;
             margin-bottom: 30px;
         }
-        .header h2 {
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
         .header p {
             font-size: 12px;
             color: #555;

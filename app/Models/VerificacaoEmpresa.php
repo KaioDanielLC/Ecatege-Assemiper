@@ -40,8 +40,8 @@ class VerificacaoEmpresa extends Model
         'pdf_ambiental',
         'pdf_bombeiro',
         'pdf_sanitario',
-        'pdf_vigilancia'
-
+        'pdf_vigilancia',
+        'pdf_extra'
     ];
     protected $dates = ['data_validade'];
 

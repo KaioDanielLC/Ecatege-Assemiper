@@ -336,6 +336,17 @@
                         >
                     </div>
 
+                    <div>
+                        <label for="pdf_extra" class="block text-sm font-bold text-gray-600">Documento Extra</label>
+                        <input 
+                            name="pdf_extra" 
+                            id="pdf_extra"
+                            type="file"
+                            accept=".pdf"
+                            class="mt-2 block w-full text-sm text-black border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:ring-indigo-500 dark:border-gray-600"
+                        >
+                    </div>
+
                     <div class="mt-6 flex justify-end gap-4 col-span-4">
                         <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-bold text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
                             Confirmar

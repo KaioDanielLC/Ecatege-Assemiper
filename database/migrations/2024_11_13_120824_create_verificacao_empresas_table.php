@@ -40,6 +40,7 @@ return new class extends Migration
             $table->string('pdf_ambiental')->nullable();
             $table->string('pdf_sanitario')->nullable();
             $table->string('pdf_bombeiro')->nullable();
+            $table->string('pdf_extra')->nullable();
             $table->timestamps();
         });
     }

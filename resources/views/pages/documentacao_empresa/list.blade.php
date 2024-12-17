@@ -80,7 +80,7 @@
                 <tr class="">
                     <td class="border-2 border-black align-middle text-center">{{$verificacaoempresas->ano}}</td>
                     <td class="border-2 border-black align-middle text-center">{{$verificacaoempresas->numero_pasta}}</td>
-                    <td class="border-2 border-black align-middle text-center">{{$verificacaoempresas->nome_fantasia}}</td>
+                    <td class="border-2 border-black align-middle text-center text-nowrap">{{$verificacaoempresas->nome_fantasia}}</td>
                     <td class="border-2 border-black align-middle text-center">{{$verificacaoempresas->inscricao_municipal}}</td>
                     <td class="border-2 border-black align-middle text-center">{{\Carbon\Carbon::parse($verificacaoempresas->data_validade)->format('d/m/Y') }}</td>
                     <td class="border-2 border-black align-middle text-center">{{$verificacaoempresas->area_total}}m²</td>

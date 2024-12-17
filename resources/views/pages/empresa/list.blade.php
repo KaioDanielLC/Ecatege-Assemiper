@@ -27,7 +27,7 @@
                     class="w-96 p-2 text-sm border border-gray-300 rounded-lg text-dark focus:ring-blue-500 focus:border-blue-500"
                     value="{{ request('search') }}" />
             </div>
-            <button type="submit" class="ml-2 p-2 bg-[#2C6B5B] text-white rounded-lg focus:ring-4 focus:ring-green-700">
+            <button type="submit" class="ml-4 p-2 bg-[#2C6B5B] text-white rounded-lg focus:ring-4 focus:ring-green-700">
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" aria-hidden="true">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 19l-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
                 </svg>
@@ -37,7 +37,7 @@
 
     <div class="flex justify-center">
         <div class="w-4/6">
-            <div class="flex justify-center mt-10 gap-28 grid grid-cols-2 mb-10">
+            <div class="flex justify-center items-center mt-10 gap-28 grid grid-cols-2 mb-10">
                 @foreach ($empresa as $empresas)
                     <div class="block max-w-sm p-8 bg-white border border-gray-200 rounded-lg shadow-md h-96 w-96 relative grid grid-cols-2">
 
@@ -52,32 +52,31 @@
 
                         <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 text-center col-span-2 break-normal">{{ $empresas->nome_empresa }}</h5>
                         
-                        <div>
+                        <div class="ml-4">
                             <p class="font-medium">Nome do Titular:</p>
                             <p class="font-normal text-gray-700 dark:text-gray-700 pr-4">{{ $empresas->nome_dono }}</p>
-
                         </div>
-                        <div>
+                        <div class="ml-4">
                             <p class="font-medium">Endereço:</p>
                             <p class="font-normal text-gray-700 dark:text-gray-700">{{ $empresas->endereco }}</p>
                         </div>
-                        <div>
+                        <div class="ml-4">
                             <p class="font-medium">Cidade:</p>
                             <p class="font-normal text-gray-700 dark:text-gray-700">{{ $empresas->cidade }}</p>
                         </div>
-                        <div>
+                        <div class="ml-4">
                             <p class="font-medium">Celular:</p>
                             <p class="font-normal text-gray-700 dark:text-gray-700">{{ $empresas->celular }}</p>
                         </div>
-                        <div>
+                        <div class="ml-4">
                             <p class="font-medium">WhatsApp:</p>
                             <p class="font-normal text-gray-700 dark:text-gray-700">{{ $empresas->whatsapp }}</p>
                         </div>
-                        <div>
+                        <div class="ml-4">
                             <p class="font-medium">Telefone Fixo:</p>
                             <p class="font-normal text-gray-700 dark:text-gray-700">{{ $empresas->telefone }}</p>
                         </div>
-                        <div>
+                        <div class="ml-4">
                             <p class="font-medium">Email:</p>
                             <p class="font-normal text-gray-700 dark:text-gray-700 ">{{ $empresas->email }}</p>
                         </div>

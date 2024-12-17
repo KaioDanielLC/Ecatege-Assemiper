@@ -39,7 +39,7 @@
         <div class=" w-4/6 ">
             <div class="flex justify-center mt-10 gap-28 grid grid-cols-2 mb-10">
                 @foreach ($empresa_filial as $empresa_filiais )
-                <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md h-96 w-96 relative grid grid-cols-2 ">
+                <div class="block max-w-sm p-8 bg-white border border-gray-200 rounded-lg shadow-md h-96 w-96 relative grid grid-cols-2 ">
 
                     <a href="{{ route('ImprimirEmpresafilial.pdf', [$empresa_filiais->id]) }}" target="_blank" 
                         class="absolute top-2 right-2">
@@ -51,49 +51,51 @@
                     </a>
 
                     <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 text-center col-span-2 break-normal">{{$empresa_filiais->nome_empresa}}</h5>
-                    <div>
+                    <div class="ml-4">
                         <p>Nome do Titular:</p>
                         <p class="font-normal text-gray-700 dark:text-gray-700">{{$empresa_filiais->nome_dono}}</p>
                     </div>
-                    <div>
+                    <div class="ml-4">
                         <p>Endereço:</p>
                         <p class="font-normal text-gray-700 dark:text-gray-700">{{$empresa_filiais->endereco}}</p>
                     </div>
-                    <div>
+                    <div class="ml-4">
                         <p>Celular:</p>
                         <p class="font-normal text-gray-700 dark:text-gray-700">{{$empresa_filiais->celular}}</p>
                     </div>
-                    <div>
+                    <div class="ml-4">
                         <p>WhatsApp:</p>
                         <p class="font-normal text-gray-700 dark:text-gray-700">{{$empresa_filiais->whatsapp}}</p>
                     </div>
-                    <div>
+                    <div class="ml-4">
                         <p>Telefone Fixo:</p>
                         <p class="font-normal text-gray-700 dark:text-gray-700">{{$empresa_filiais->telefone}}</p>
                     </div>
-                    <div>
-                        <p>Email:</p>
-                        <p class="font-normal text-gray-700 dark:text-gray-700 break-all ">{{$empresa_filiais->email}} </p>
-                    </div>
-                    <div>
+                    <div class="ml-4">
                         <p>Empresa Matriz :</p>
                         <p class="font-normal text-gray-700 dark:text-gray-700">{{$empresa_filiais->empresa->nome_empresa}}</p>
                     </div>
-                    <div></div>
+                    <div class="ml-4">
+                        <p>Email:</p>
+                        <p class="font-normal text-gray-700 dark:text-gray-700 ">{{$empresa_filiais->email}} </p>
+                    </div>
+                    <div class="flex justify-center items-center col-span-2 mt-2">
+                        <a href="{{route('empresa_filial.edit',['empresa_filial'=>$empresa_filiais->id])}}" class="mr-12">
+                            <button type="button" class="text-white bg-yellow-500 hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-yellow-300 transition duration-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center w-20">
+                                Editar
+                            </button>
+                        </a>
+                        <a href="{{route('empresa_filial.destroy',[$empresa_filiais->id])}}" class="delete-link ml-12" data-company-name="{{$empresa_filiais->nome_empresa}}">
+                            <button type="button" class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 transition duration-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center w-20">
+                                Excluir
+                            </button>
+                        </a>        
+                    </div>
 
 
 
 
-                    <a href="{{route('empresa_filial.edit',['empresa_filial'=>$empresa_filiais->id])}} " class="flex justify-center items-center">
-                        <button type="button" class="text-white bg-yellow-500 hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-yellow-300 transition duration-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center w-1/2">
-                            Editar
-                        </button>
-                    </a>
-                    <a href="{{route('empresa_filial.destroy',[$empresa_filiais->id])}}" class="flex justify-center items-center delete-link" data-company-name="{{$empresa_filiais->nome_empresa}}">
-                        <button type="button" class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 transition duration-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center w-1/2">
-                            Excluir
-                        </button>
-                    </a>                    
+                               
                     <div id="confirmModal" class="fixed inset-0 z-50 hidden bg-gray-900 bg-opacity-50 flex items-center justify-center">
                         <div class="bg-white p-6 rounded-lg shadow-lg w-85">
                             <p class="mb-4">Tem certeza que deseja excluir a filial <span id="companyName" class="font-semibold"></span> ?</p>
