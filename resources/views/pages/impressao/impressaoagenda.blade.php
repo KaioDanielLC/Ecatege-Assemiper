@@ -61,7 +61,7 @@
                 <td>{{ $empresa->nome_empresa }}</td>
             </tr>
             <tr>
-                <th>Nome do Dono</th>
+                <th>Nome do Titular</th>
                 <td>{{ $empresa->nome_dono }}</td>
             </tr>
             <tr>

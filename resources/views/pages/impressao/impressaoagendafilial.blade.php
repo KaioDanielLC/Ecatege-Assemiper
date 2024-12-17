@@ -61,7 +61,7 @@
         <h2 class="section-title">Informações Gerais</h2>
         <table>
             <tr>
-                <th>Nome do Titular</th>
+                <th>Nome do Fantasia</th>
                 <td>{{ $empresa_filial->nome_empresa }}</td>
             </tr>
             <tr>
