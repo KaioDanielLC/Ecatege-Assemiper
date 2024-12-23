@@ -82,11 +82,11 @@
             </tr>
             <tr>
                 <th>Área Total</th>
-                <td>{{ $VerificacaoEmpresa->area_total }}</td>
+                <td>{{ $VerificacaoEmpresa->area_total }}m²</td>
             </tr>
             <tr>
                 <th>Área Utilizada</th>
-                <td>{{ $VerificacaoEmpresa->area_utilizada }}</td>
+                <td>{{ $VerificacaoEmpresa->area_utilizada }}m²</td>
             </tr>
         </table>
 
